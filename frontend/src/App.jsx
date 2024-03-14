@@ -1,7 +1,26 @@
-import React from 'react'
+import{BrowserRouter,Routes, Route}from 'react-router-dom';
+import Home from './pages/Home';
+import Signin from './pages/Signin';
+import Signup from './pages/Signup';
+import Employee from './pages/Employee';
+import Admin from './pages/Admin';
 
-export default function App() {
+
+
+export default function App(){
+
   return (
-    <h1 className='text-red-600'>App</h1>
+  <BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/sign-in" element={<Signin />} />
+    <Route path="/sign-up" element={<Signup />} />
+    <Route path="/employee" element={<Employee />} />
+    <Route path="/admin" element={<Admin />} />
+    
+  
+</Routes>
+
+  </BrowserRouter>
   )
 }
