@@ -1,7 +1,25 @@
-import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Appointment from './pages/Appointment'
+import CreateAppointment from './pages/CreateAppointment'
+import UpdateAppointment from './pages/UpdateAppointment'
+import CustomerProfile from './pages/CustomerProfile'
+import GarageManagerDash from './pages/GarageManagerDash'
+import AppointmentHistory from './pages/AppointmentHistory'
+import AgentAppointment from './pages/AgentAppointment'
+
 
 export default function App() {
-  return (
-    <h1 className='text-red-600'>App</h1>
-  )
+  return <BrowserRouter>
+          <Routes>
+            <Route path='/appointmentlanding' element={<Appointment/>} /> 
+            <Route path='appointmentcreate' element={<CreateAppointment/>} />  
+            <Route path='/appointmentupdate' element={<UpdateAppointment/>} />  
+            <Route path='/customerprofile' element={<CustomerProfile/>} />   
+            <Route path='/garagemanagerdash' element={<GarageManagerDash/>} />
+            <Route path='/appointmenthistory' element={<AppointmentHistory/>} /> 
+            <Route path='/agentappointment' element={<AgentAppointment/>} /> 
+            
+
+          </Routes>
+          </BrowserRouter>
 }
