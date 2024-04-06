@@ -1,13 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from '../src/pages/Home';
-import SignIn from '../src/pages/Signin'
-import SignUp from '../src/pages/Signup';
-import About from '../src/pages/About';
-import Profile from '../src/pages/Profile';
+import Home from './pages/Home';
+import SignIn from './pages/Signin'
+import SignUp from './pages/Signup';
+import About from './pages/About';
+import Profile from './pages/Profile';
+import Header from './component/Header';
 
 export default function App() {
   return (
     <BrowserRouter>
+    <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-in" element={<SignIn />} />
