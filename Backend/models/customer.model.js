@@ -27,6 +27,11 @@ const customerSchema = new mongoose.Schema({
         required:true,
 
     },
+
+    avatar:{
+        type: String,
+        default: "https://www.pngall.com/wp-content/uploads/5/Profile-Avatar-PNG.png"
+      },
    
 },
 
