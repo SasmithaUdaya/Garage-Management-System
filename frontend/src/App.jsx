@@ -12,8 +12,8 @@ export default function App() {
   return <BrowserRouter>
           <Routes>
             <Route path='/appointmentlanding' element={<Appointment/>} /> 
-            <Route path='appointmentcreate' element={<CreateAppointment/>} />  
-            <Route path='/appointmentupdate' element={<UpdateAppointment/>} />  
+            <Route path='/appointmentcreate' element={<CreateAppointment/>} />  
+            <Route path='/appointmentupdate/:id' element={<UpdateAppointment/>} />  
             <Route path='/customerprofile' element={<CustomerProfile/>} />   
             <Route path='/garagemanagerdash' element={<GarageManagerDash/>} />
             <Route path='/appointmenthistory' element={<AppointmentHistory/>} /> 

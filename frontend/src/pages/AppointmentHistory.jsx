@@ -1,32 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 export default function AppointmentHistory() {
-  // Dummy data set
-  const appointments = [
-    {
-      _id: 1,
-      customerName: "John Doe",
-      customerId: "123456",
-      contactNumber: "123-456-7890",
-      serviceType: "Oil Change",
-      vehicleModel: "Toyota Camry",
-      vehicleNumber: "ABC123",
-      appointmentDate: "2024-04-12",
-      timeSlot: "10:00 AM"
-    },
-    {
-      _id: 2,
-      customerName: "Jane Smith",
-      customerId: "789012",
-      contactNumber: "987-654-3210",
-      serviceType: "Tire Rotation",
-      vehicleModel: "Honda Accord",
-      vehicleNumber: "XYZ789",
-      appointmentDate: "2024-04-13",
-      timeSlot: "11:00 AM"
-    }
-  ];
+  const [appointments, setAppointments] = useState([]);
+
+  useEffect(() => {
+    // Fetch appointment data from the server
+    axios.get("http://localhost:3000/appointmenthistory")
+      .then(response => {
+        setAppointments(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+
+
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:3000/delete/${id}`)
+      .then(response => {
+        // Remove the deleted appointment from the state
+        setAppointments(appointments.filter(appointment => appointment._id !== id));
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+
 
   return (
     <div className="bg-black min-h-screen py-20">
@@ -63,8 +65,8 @@ export default function AppointmentHistory() {
                   <td className="py-2 px-4">{appointment.appointmentDate}</td>
                   <td className="py-2 px-4">{appointment.timeSlot}</td>
                   <td className="py-2 px-4">
-                    <Link to="/appointmentupdate" className="bg-blue-500 text-white py-1 px-2 rounded-md mr-2">Update</Link>
-                    <button className="bg-red-500 text-white py-1 px-2 rounded-md" >Delete</button>
+                    <Link to={`/appointmentupdate/${ appointment._id }`} className="bg-blue-500 text-white py-1 px-2 rounded-md mr-2">Update</Link>
+                    <button className="bg-red-500 text-white py-1 px-2 rounded-md" onClick={(e) => handleDelete(appointment._id)} >Delete</button>
                   </td>
                 </tr>
               ))}
