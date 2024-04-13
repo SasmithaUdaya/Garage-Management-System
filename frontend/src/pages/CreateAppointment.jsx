@@ -1,12 +1,29 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export default function CreateAppointment() {
   const [selectedDate, setSelectedDate] = useState(null);
+  const [customerName, setCustomerName] = useState('');
+  const [customerId, setCustomerId] = useState('');
+  const [contactNumber, setContactNumber] = useState('');
+  const [serviceType, setServiceType] = useState('');
+  const [vehicleModel, setVehicleModel] = useState('');
+  const [vehicleNumber, setVehicleNumber] = useState('');
+  const [timeslot, setTimeslot] = useState('');
+  const [completed, setCompleted] = useState(false);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+  };
+
+  const handleTimeSlotChange = (e) => {
+    setTimeslot(e.target.value);
+  };
+
+  const handleServiceTypeChange = (e) => {
+    setServiceType(e.target.value);
   };
 
   const timeSlots = [
@@ -22,6 +39,38 @@ export default function CreateAppointment() {
     '18:00-19:00',
   ];
 
+  const serviceTypes = [
+    'Oil Change',
+    'Tire Rotation',
+    'Brake Inspection',
+    'Engine Tune-Up',
+    'Wheel Alignment',
+    'Battery Replacement',
+    'Transmission Service',
+    'AC Service',
+  ];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post("http://localhost:3000/appointmentcreate", {
+      customerName: customerName,
+      customerId: customerId,
+      contactNumber: contactNumber,
+      serviceType: serviceType,
+      vehicleModel: vehicleModel,
+      vehicleNumber: vehicleNumber,
+      appointmentDate: selectedDate,
+      timeSlot : timeslot,
+      completed : completed
+    })
+      .then(() => {
+        alert('Appointment Submitted Successfully');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <div style={{ padding: '20px', backgroundColor: 'black' }}>    
       <h2 className="text-4xl font-bold text-center py-2 px-4 mb-[-2]">
@@ -31,40 +80,49 @@ export default function CreateAppointment() {
       <div className='w-full p-4' style={{ height: '700px', borderTopLeftRadius: '30px', borderTopRightRadius: '30px', borderBottomLeftRadius: '30px',
        borderBottomRightRadius: '30px', backgroundColor: 'rgba(255, 255, 255, 0.3)', paddingLeft: '70px' }}>
 
-        <form>
-        <div className="flex items-center mb-4"> {/* Use flex and items-center to align items horizontally */}
-        <label htmlFor="customerName" className="mb-1 mr-2 " style={{ color: 'white', fontSize: '24px' }}>Customer Name:</label> {/* Add mr-2 for right margin */}
-        <input type="text" id="customerName" name="customerName" className="border rounded py-2 px-3" style={{ marginLeft: '100px', width: '500px' }}/>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="flex items-center mb-4">
+            <label htmlFor="customerName" className="mb-1 mr-2 " style={{ color: 'white', fontSize: '24px' }}>Customer Name:</label>
+            <input type="text" id="customerName" name="customerName" className="border rounded py-2 px-3" style={{ marginLeft: '100px', width: '500px' }} 
+            onChange={(e) => setCustomerName(e.target.value)}/>
+          </div>
 
-        <div className="flex items-center mb-4"> {/* Use flex and items-center to align items horizontally */}
-        <label htmlFor="customerId" className="mb-1 mr-2" style={{ color: 'white', fontSize: '24px' }}>Customer ID:</label> {/* Add mr-2 for right margin */}
-        <input type="text" id="customerId" name="customerId" className="border rounded py-2 px-3" style={{ marginLeft: '140px', width: '500px' }}/>
-        </div>
+          <div className="flex items-center mb-4">
+            <label htmlFor="customerId" className="mb-1 mr-2" style={{ color: 'white', fontSize: '24px' }}>Customer ID:</label>
+            <input type="text" id="customerId" name="customerId" className="border rounded py-2 px-3" style={{ marginLeft: '140px', width: '500px' }} 
+            onChange={(e) => setCustomerId(e.target.value)}/>
+          </div>
 
-        <div className="flex items-center mb-4"> {/* Use flex and items-center to align items horizontally */}
-        <label htmlFor="contactNumber" className="mb-1 mr-2" style={{ color: 'white', fontSize: '24px' }}>Contact Number:</label> {/* Add mr-2 for right margin */}
-        <input type="text" id="contactNumber" name="contactNumber" className="border rounded py-2 px-3" style={{ marginLeft: '100px', width: '500px' }}/>
-        </div>
+          <div className="flex items-center mb-4">
+            <label htmlFor="contactNumber" className="mb-1 mr-2" style={{ color: 'white', fontSize: '24px' }}>Contact Number:</label>
+            <input type="text" id="contactNumber" name="contactNumber" className="border rounded py-2 px-3" style={{ marginLeft: '100px', width: '500px' }} 
+            onChange={(e) => setContactNumber(e.target.value)}/>
+          </div>
 
-        <div className="flex items-center mb-4"> {/* Use flex and items-center to align items horizontally */}
-        <label htmlFor="serviceType" className="mb-1 mr-2" style={{ color: 'white', fontSize: '24px' }}>Service Type:</label> {/* Add mr-2 for right margin */}
-        <input type="text" id="serviceType" name="serviceType" className="border rounded py-2 px-3" style={{ marginLeft: '140px', width: '500px' }}/>
-        </div>
+          <div className="flex items-center mb-4">
+            <label htmlFor="serviceType" className="mb-1 mr-2" style={{ color: 'white', fontSize: '24px' }}>Service Type:</label>
+            <select id="serviceType" name="serviceType" onChange={handleServiceTypeChange} className="border rounded py-2 px-3" style={{ marginLeft: '125px', width: '500px' }}>
+              <option value="">Service Type</option>
+              {serviceTypes.map((type, index) => (
+                <option key={index} value={type}>{type}</option>
+              ))}
+            </select>
+          </div>
 
-        <div className="flex items-center mb-4"> {/* Use flex and items-center to align items horizontally */}
-        <label htmlFor="vehicleModel" className="mb-1 mr-2" style={{ color: 'white', fontSize: '24px' }}>Vehicle Model:</label> {/* Add mr-2 for right margin */}
-        <input type="text" id="vehicleModel" name="vehicleModel" className="border rounded py-2 px-3" style={{ marginLeft: '125px', width: '500px' }}/>
-        </div>
+          <div className="flex items-center mb-4">
+            <label htmlFor="vehicleModel" className="mb-1 mr-2" style={{ color: 'white', fontSize: '24px' }}>Vehicle Model:</label>
+            <input type="text" id="vehicleModel" name="vehicleModel" className="border rounded py-2 px-3" style={{ marginLeft: '125px', width: '500px' }}
+            onChange={(e) => setVehicleModel(e.target.value)}/>
+          </div>
 
-        <div className="flex items-center mb-4"> {/* Use flex and items-center to align items horizontally */}
-        <label htmlFor="vehicleNumber" className="mb-1 mr-2" style={{ color: 'white', fontSize: '24px' }}>Vehicle Number:</label> {/* Add mr-2 for right margin */}
-        <input type="text" id="vehicleNumber" name="vehicleNumber" className="border rounded py-2 px-3" style={{ marginLeft: '105px', width: '500px' }}/>
-        </div>
+          <div className="flex items-center mb-4">
+            <label htmlFor="vehicleNumber" className="mb-1 mr-2" style={{ color: 'white', fontSize: '24px' }}>Vehicle Number:</label>
+            <input type="text" id="vehicleNumber" name="vehicleNumber" className="border rounded py-2 px-3" style={{ marginLeft: '105px', width: '500px' }}
+            onChange={(e) => setVehicleNumber(e.target.value)}/>
+          </div>
 
-
-        <div className="flex items-center mb-4"> {/* Use flex and items-center to align items horizontally */}
-            <label htmlFor="date" className="mb-1 mr-2" style={{ color: 'white', fontSize: '24px' }}>Appointment Date:</label> {/* Add mr-2 for right margin */}
+          <div className="flex items-center mb-4">
+            <label htmlFor="date" className="mb-1 mr-2" style={{ color: 'white', fontSize: '24px' }}>Appointment Date:</label>
             <DatePicker
               selected={selectedDate}
               onChange={handleDateChange}
@@ -74,21 +132,19 @@ export default function CreateAppointment() {
             />
           </div>
 
-          {/* Time slot container */}
-          <div className="time-slot-container flex flex-wrap pl-4"> {/* Add pl-4 for left padding */}
-            {timeSlots.map((slot) => (
-              <button
-                key={slot}
-                className="bg-yellow-300 hover:bg-yellow-500 text-gray-700 font-bold py-2 px-4 rounded-md mx-1 mb-1" // Adjust width and height as needed
-              >
-                {slot}
-              </button>
-            ))}
+          <div className="flex items-center mb-4">
+            <label htmlFor="timeslot" className="mb-1 mr-2" style={{ color: 'white', fontSize: '24px' }}>Preferred Time Slot:</label>
+            <select id="timeslot" name="timeslot" onChange={handleTimeSlotChange} className="border rounded py-2 px-3" style={{ width: '300px' }}>
+              <option value="">Select a timeslot</option>
+              {timeSlots.map((slot, index) => (
+                <option key={index} value={slot}>{slot}</option>
+              ))}
+            </select>
           </div>
 
           <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" style={{ marginTop: '20px', float: 'right', width: '200px' }}>Submit</button>
 
-           </form>
+        </form>
       </div>
     </div>
   );

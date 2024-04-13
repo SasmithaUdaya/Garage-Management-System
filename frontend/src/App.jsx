@@ -18,8 +18,6 @@ export default function App() {
             <Route path='/garagemanagerdash' element={<GarageManagerDash/>} />
             <Route path='/appointmenthistory' element={<AppointmentHistory/>} /> 
             <Route path='/agentappointment' element={<AgentAppointment/>} /> 
-            
-
           </Routes>
           </BrowserRouter>
 }
