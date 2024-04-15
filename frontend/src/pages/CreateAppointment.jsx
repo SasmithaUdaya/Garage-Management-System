@@ -65,6 +65,7 @@ export default function CreateAppointment() {
     })
       .then(() => {
         alert('Appointment Submitted Successfully');
+        navigate('/appointmenthistory');
       })
       .catch((err) => {
         console.log(err);

@@ -79,3 +79,45 @@ app.delete("/delete/:id", async (req,res) => {
 app.listen(3000, () =>{
     console.log("server is running")
 })
+
+
+//Garage admin's view
+//read in garade admin dashboard
+app.get("/garagemanagerdash", async (req, res) => {
+    try {
+        const appointments = await appointment.find().sort({ appointmentDate: 1 });
+        res.json(appointments);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+// Update: mark appointment as completed
+app.put("/complete/:id", async (req,res) => {
+    appointment.findByIdAndUpdate(req.params.id, {
+        completed: true
+    }).then(() => {
+        res.send("success");
+    }).catch((err) => {
+        res.send(err);
+    });
+});
+
+
+//sent the count of (true) value to customer profile
+app.get('/customerprofile/:customerId', async (req, res) => {
+    const customerId = req.params.customerId;
+  
+    try {
+      // Find appointments for the specified customer ID
+      const appointments = await appointment.find({ customerId });
+  
+      // Count the number of completed appointments for the customer
+      const completedAppointmentsCount = appointments.filter(appointment => appointment.completed).length;
+  
+      res.json({ count: completedAppointmentsCount });
+    } catch (err) {
+      console.error('Error:', err);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+});
