@@ -50,17 +50,15 @@ export default function showService() {
 
   return (
     <div>
-        <div className='flex justify-between'>
-        <button onClick={handleShowListings} className='text-green-700 w-full px-6 py-4'>
-        Show Standalone Services
+        <div className='flex justify-center mt-5'>
+        <button onClick={handleShowListings} className=' bg-yellow-600 text-white rounded-lg p-3 hover:opacity-95 disabled:opacity-80'>
+        Show My Listings
       </button>
-      <button  className='text-green-700 w-full px-6'>
-        Show Service Package
-      </button>
+     
+      </div>
       <p className='text-red-700 mt-5'>
         {showListingsError ? 'Error showing listings' : ''}
       </p>
-      </div>
 
       {userListings &&
         userListings.length > 0 &&
@@ -75,7 +73,7 @@ export default function showService() {
                 <img
                   src={listing.imageUrls[0]}
                   alt='listing cover'
-                  className='h-16 w-16 object-contain'
+                  className='h-16 w-16 object-contain '
                 />
               </Link>
               <Link
@@ -83,6 +81,12 @@ export default function showService() {
                 to={`/listing/${listing._id}`}
               >
                 <p>{listing.name}</p>
+              </Link>
+              <Link
+                className='text-slate-700 font-semibold  hover:underline truncate flex-1'
+                to={`/listing/${listing._id}`}
+              >
+                <p>{listing.type}</p>
               </Link>
 
               <div className='flex flex-col item-center '>

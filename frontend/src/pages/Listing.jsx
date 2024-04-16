@@ -42,11 +42,13 @@ export default function Listing() {
       )}
       {listing && !loading && !error && (
         <div>
+            <div className="flex justify-center mt-5">
+                <div className="max-w-screen-lg w-full">
           <Swiper navigation>
             {listing.imageUrls.map((url) => (
               <SwiperSlide key={url}>
                 <div
-                  className='h-[550px]'
+                  className='h-[400px] rounded-2xl'
                   style={{
                     background: `url(${url}) center no-repeat`,
                     backgroundSize: 'cover',
@@ -55,6 +57,25 @@ export default function Listing() {
               </SwiperSlide>
             ))}
           </Swiper>
+          </div>
+          </div>
+         
+          <div className='flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4'>
+            <p className='text-2xl font-semibold'>
+              {listing.name} - Rs { listing.price}
+            </p>
+           
+            <div className='flex gap-4'>
+                <button className='bg-red-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
+                 Add to Cart
+                </button>
+            </div>
+            <p className='text-slate-800'>
+              <span className='font-semibold text-black'>Description - </span>
+              {listing.description}
+            </p>
+            
+          </div>
         </div>
       )}
     </main>

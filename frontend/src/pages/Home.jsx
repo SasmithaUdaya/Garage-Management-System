@@ -27,14 +27,10 @@ export default function Home() {
       <div className="relative">
         <Link to="/create-service">
           <button className="bg-slate-700 text-white rounded-lg px-6 py-3 mr-4 hover:bg-opacity-90 focus:outline-none">
-            Create Service
+            Create Listing
           </button>
         </Link>
-        <Link to="/create-package">
-          <button className="bg-slate-700 text-white rounded-lg px-6 py-3 mr-4 hover:bg-opacity-90 focus:outline-none">
-            Create Package
-          </button>
-        </Link>
+        
         <Link to="/show-service">
           <button className="bg-slate-700 text-white rounded-lg px-6 py-3 mr-4 hover:bg-opacity-90 focus:outline-none">
             Show Listings
