@@ -8,6 +8,7 @@ import CreateListing from "./pages/CreateListing";
 import CreatePackage from "./pages/CreatePackage";
 import ShowService from "./pages/showService";
 import UpdateListing from "./pages/updateListing";
+import Listing from "./pages/Listing";
 import Header from "./component/Header";
 import PrivateRoute from "./component/privateRoute";
 
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/about" element={<About />} />
+        <Route path="/listing/:listingId" element={<Listing />} />
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
           <Route path="/create-service" element={<CreateListing />} />
