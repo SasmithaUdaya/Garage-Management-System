@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Profile from "./pages/Profile";
 import CreateListing from "./pages/CreateListing";
 import CreatePackage from "./pages/CreatePackage";
+import ShowService from "./pages/showService";
 import Header from "./component/Header";
 import PrivateRoute from "./component/privateRoute";
 
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/create-service" element={<CreateListing />} />
           <Route path="/create-package" element={<CreatePackage />} />
+          <Route path="/show-service" element={<ShowService />} />
         </Route>
       </Routes>
     </BrowserRouter>
