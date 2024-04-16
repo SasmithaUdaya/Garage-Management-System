@@ -28,6 +28,25 @@ export default function showService() {
     }
   };
 
+  const handleListingDelete = async (listingId) => {
+    try {
+      const res = await fetch(`/Backend/listing/delete/${listingId}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        console.log(data.message);
+        return;
+      }
+
+      setUserListings((prev) =>
+        prev.filter((listing) => listing._id !== listingId)
+      );
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
 
   return (
     <div>
@@ -67,7 +86,7 @@ export default function showService() {
               </Link>
 
               <div className='flex flex-col item-center '>
-                <button className='bg-red-700 rounded-lg px-3 py-1 text-white uppercase font-semibold mt-2'>Delete</button>
+                <button  onClick={() => handleListingDelete(listing._id)} className='bg-red-700 rounded-lg px-3 py-1 text-white uppercase font-semibold mt-2'>Delete</button>
                 <button className='bg-green-700 rounded-lg px-3 py-1 text-white uppercase font-semibold mt-2'>Edit</button>
               </div>
             </div>
