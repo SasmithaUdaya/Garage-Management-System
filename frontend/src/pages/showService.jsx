@@ -87,7 +87,9 @@ export default function showService() {
 
               <div className='flex flex-col item-center '>
                 <button  onClick={() => handleListingDelete(listing._id)} className='bg-red-700 rounded-lg px-3 py-1 text-white uppercase font-semibold mt-2'>Delete</button>
+                <Link to={`/update-listing/${listing._id}`}>
                 <button className='bg-green-700 rounded-lg px-3 py-1 text-white uppercase font-semibold mt-2'>Edit</button>
+                </Link>
               </div>
             </div>
           ))}
