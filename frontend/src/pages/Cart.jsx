@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/bundle';
 
-export default function Listing() {
+export default function Cart() {
   SwiperCore.use([Navigation]);
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -64,15 +64,12 @@ export default function Listing() {
             <p className='text-2xl font-semibold'>
               {listing.name} - Rs { listing.price}
             </p>
-            <Link to={'/show-cart'}>
+           
             <div className='flex gap-4'>
-              
                 <button className='bg-red-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
                  Add to Cart
                 </button>
-               
             </div>
-            </Link>
             <p className='text-slate-800'>
               <span className='font-semibold text-black'>Description - </span>
               {listing.description}

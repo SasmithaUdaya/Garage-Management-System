@@ -19,7 +19,7 @@ export default function search() {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get("searchTerm");
     const typeFromUrl = urlParams.get("type");
-    const sortFromUrl = urlParams.get("sort");
+    const sortFromUrl = urlParams.get("sort"); //created date
     const orderFromUrl = urlParams.get("order");
 
     if (searchTermFromUrl || typeFromUrl || sortFromUrl || orderFromUrl) {
@@ -109,7 +109,7 @@ export default function search() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className="flex max-w-fit flex-col md:flex-row">
       <div className="p-7  border-b-2 md:border-r-2 md:min-h-screen">
         <form onSubmit={handleSubmit} className="flex flex-col gap-8">
           <div className="flex items-center gap-2">
@@ -120,7 +120,7 @@ export default function search() {
               type="text"
               id="searchTerm"
               placeholder="Search..."
-              className="border rounded-lg p-3 w-full"
+              className="border rounded-lg p-3 "
               value={sidebardata.searchTerm}
               onChange={handleChange}
             />
@@ -179,13 +179,13 @@ export default function search() {
         </form>
       </div>
       <div className="">
-        <h1 className="text-3xl font-semibold border-b p-3 text-slate-700 mt-5">
+        <h1 className="text-3xl max-w-fit font-semibold border-b p-3 text-slate-700 mt-5">
           Listing results:
         </h1>
 
         {/* validation  listings */}
 
-        <div className="p-7 flex flex-wrap gap-4">
+        <div className="p-7 max-w-fit flex flex-wrap gap-4">
           {!loading && listings.length === 0 && (
             <p className="text-xl text-slate-700">No listing found!</p>
           )}

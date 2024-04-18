@@ -86,6 +86,22 @@ export default function CreateListing() {
   };
 
   const handleChange = (e) => {
+
+    const { id, value, type } = e.target;
+
+  // Handle validation for listing name
+  if (id === "name" && type === "text") {
+    const onlyLetters = /^[a-zA-Z\s]*$/;
+    if (!onlyLetters.test(value)) {
+      setError("Listing name should contain only letters");
+      return;
+    }
+  }
+
+    // Clear error if no validation errors
+    setError("");
+
+
     if (e.target.id === "package" || e.target.id === "service") {
       setFormData({
         ...formData,
@@ -93,7 +109,8 @@ export default function CreateListing() {
       });
     }
 
-   
+    
+
 
     if (
       e.target.type === "number" ||
@@ -202,7 +219,7 @@ export default function CreateListing() {
               />
               <div className="flex flex-col items-center">
                 <p>Price</p>
-                <span className="text-xs">(Rs / month)</span>
+                <span className="text-xs">(Rs)</span>
               </div>
             </div>
           </div>
@@ -260,7 +277,7 @@ export default function CreateListing() {
             ))}
           <button
             disabled={loading || uploading}
-            className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+            className="p-3 bg-yellow-600 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
           >
             {loading ? "Creating..." : "Create listing"}
           </button>

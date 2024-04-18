@@ -45,19 +45,40 @@ export default function Home() {
 
   return (
     <div>
+    <div className="flex justify-center mt-8">
+      <div className="relative">
+        <Link to="/create-service">
+          <button className="bg-slate-700 text-white rounded-lg px-6 py-3 mr-4 hover:bg-opacity-90 focus:outline-none">
+            Create Listing
+          </button>
+        </Link>
+        <Link to="/show-service">
+          <button className="bg-slate-700 text-white rounded-lg px-6 py-3 mr-4 hover:bg-opacity-90 focus:outline-none">
+            Show Listings
+          </button>
+        </Link>
+        <Link to="/show-report">
+          <button className="bg-red-700 text-white rounded-lg px-6 py-3 mr-4 hover:bg-opacity-90 focus:outline-none">
+            Generate Report
+          </button>
+        </Link>
+      </div>
+      </div>
 
        {/* top */}
        <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
         <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl'>
-          Find your next <span className='text-slate-500'>perfect</span>
+          We are EG motors <span className='text-slate-500'>always</span>
           <br />
-          place with ease
+          <span className='text-yellow-500'>be original</span>
         </h1>
         <div className='text-gray-400 text-xs sm:text-sm'>
-          Sahand Estate is the best place to find your next perfect place to
-          live.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+        
           <br />
-          We have a wide range of properties for you to choose from.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
         <Link
           to={'/search'}

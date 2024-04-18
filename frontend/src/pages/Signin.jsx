@@ -9,10 +9,12 @@ import {
 import OAuth from '../component/OAuth';
 
 export default function Signin() {
+  const { currentUser } = useSelector(state => state.user);
   const [formData, setFormData] = useState({});
   const { loading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isAdmin = currentUser && currentUser.email === 'kaveesha@gmail.com';
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -36,8 +38,11 @@ export default function Signin() {
         dispatch(signInFailure(data.message));
         return;
       }
-      dispatch(signInSuccess(data));
-      navigate('/');
+      // dispatch(signInSuccess(data));
+      else {
+        dispatch(signInSuccess(data));
+        navigate(isAdmin ? '/home' : '/'); // Redirect based on user role
+      }
     } catch (error) {
       dispatch(signInFailure(error.message));
     }
