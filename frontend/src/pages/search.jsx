@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ListingItem from '../component/ListingItem';
+import ListingItem from "../component/ListingItem";
 
 export default function search() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ export default function search() {
 
   const [loading, setLoading] = useState(false);
   const [listings, setListings] = useState([]);
-  console.log(listings);
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
@@ -33,9 +33,15 @@ export default function search() {
 
     const fetchListings = async () => {
       setLoading(true);
+      setShowMore(false);
       const searchQuery = urlParams.toString();
       const res = await fetch(`/Backend/listing/get?${searchQuery}`);
       const data = await res.json();
+      if (data.length > 8) {
+        setShowMore(true);
+      } else {
+        setShowMore(false);
+      }
       setListings(data);
       setLoading(false);
     };
@@ -86,6 +92,20 @@ export default function search() {
     urlParams.set("order", sidebardata.order);
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
+  };
+
+  const onShowMoreClick = async () => {
+    const numberOfListings = listings.length;
+    const startIndex = numberOfListings;
+    const urlParams = new URLSearchParams(location.search);
+    urlParams.set("startIndex", startIndex);
+    const searchQuery = urlParams.toString();
+    const res = await fetch(`/Backend/listing/get?${searchQuery}`);
+    const data = await res.json();
+    if (data.length < 9) {
+      setShowMore(false);
+    }
+    setListings([...listings, ...data]);
   };
 
   return (
@@ -147,10 +167,10 @@ export default function search() {
               id="sort_order"
               className="border rounded-lg p-3"
             >
-              <option value='price_desc'>Price high to low</option>
-              <option value='price_asc'>Price low to hight</option>
-              <option value='createdAt_desc'>Latest</option>
-              <option value='createdAt_asc'>Oldest</option>
+              <option value="price_desc">Price high to low</option>
+              <option value="price_asc">Price low to hight</option>
+              <option value="createdAt_desc">Latest</option>
+              <option value="createdAt_asc">Oldest</option>
             </select>
           </div>
           <button className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95">
@@ -165,12 +185,12 @@ export default function search() {
 
         {/* validation  listings */}
 
-        <div className='p-7 flex flex-wrap gap-4'>
+        <div className="p-7 flex flex-wrap gap-4">
           {!loading && listings.length === 0 && (
-            <p className='text-xl text-slate-700'>No listing found!</p>
+            <p className="text-xl text-slate-700">No listing found!</p>
           )}
           {loading && (
-            <p className='text-xl text-slate-700 text-center w-full'>
+            <p className="text-xl text-slate-700 text-center w-full">
               Loading...
             </p>
           )}
@@ -180,6 +200,15 @@ export default function search() {
             listings.map((listing) => (
               <ListingItem key={listing._id} listing={listing} />
             ))}
+
+          {showMore && (
+            <button
+              onClick={onShowMoreClick}
+              className="text-green-700 hover:underline p-7 text-center w-full"
+            >
+              Show more listings
+            </button>
+          )}
         </div>
       </div>
     </div>
