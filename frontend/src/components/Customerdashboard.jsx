@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaBook, FaEdit, FaEnvelope, FaEye, FaHeart } from 'react-icons/fa'
+import { FaBook, FaDownload, FaEdit, FaEnvelope, FaEye, FaHeart } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 export default function Customerdashboard() {
@@ -13,8 +13,12 @@ export default function Customerdashboard() {
           <li className="py-2 border p-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded-md  cursor-pointer flex " > <FaBook className=" mr-2 text-slate-600 " />Vehicle Data </li>
           </Link>
          
-          <Link to="">
+          <Link to="/customerdailyupdate">
             <li className="py-2 border p-3 bg-red-500 hover:bg-red-600 text-white rounded-md  cursor-pointer flex"><FaEnvelope className=" mr-2 text-slate-600 " />Daily Status</li>
+          </Link>
+
+          <Link to="/cusreport">
+            <li className="py-2 border p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md  cursor-pointer flex"><FaDownload className=" mr-2 text-slate-600 " />Report</li>
           </Link>
          
          

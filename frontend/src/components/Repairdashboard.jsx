@@ -19,7 +19,15 @@ export default function Repairdashboard() {
             <Link to="/reaction">
             <li className="py-2 border p-3 bg-green-500 hover:bg-green-600 text-white rounded-md  cursor-pointer flex" ><FaHeart className=" mr-2 text-slate-600 " />Customer Reaction</li>
             </Link>
+
+            <Link to="/allstatus">
             <li className="py-2 border p-3  bg-blue-500 hover:bg-blue-600 text-white rounded-md  cursor-pointer flex"><FaEdit className=" mr-2 text-slate-600 " />Daily Status</li>
+            </Link>
+
+            <Link to="/report">
+            <li className="py-2 border p-3  bg-blue-500 hover:bg-blue-600 text-white rounded-md  cursor-pointer flex"><FaEdit className=" mr-2 text-slate-600 " />Report</li>
+            </Link>
+         
           </ul>
         </div>
       </div>

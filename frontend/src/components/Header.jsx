@@ -10,6 +10,9 @@ export default function Header() {
   const isSupervisor = currentUser && currentUser.username === 'supervisor@gmail.com';
   const isStaff = currentUser && currentUser.email === 'staff@gmail.com';
 
+
+  
+
   return (
     <header className='bg-slate-200 shadow-sm'>
       <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>

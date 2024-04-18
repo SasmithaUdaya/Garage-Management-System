@@ -27,6 +27,14 @@ import QR from './pages/QR';
 import QRScanner from './pages/QRScanner';
 import Customerreaction from './pages/Customerreaction';
 import AddDailystatus from './pages/AddDailystatus';
+import AllDailyStatus from './pages/AllDailyStatus';
+import Dailyupdate from './pages/Dailyupdate';
+import Report from './pages/Report';
+import Customerdaliupdate from './pages/Customerdaliupdate';
+import Updaterequirment from './pages/Updaterequirment';
+import Search from './components/Search';
+import History from './pages/History';
+import CustomerReport from './pages/CustomerReport';
 
 export default function App() {
   return (
@@ -106,6 +114,22 @@ export default function App() {
        <Route path="/reaction" element={<Customerreaction />} />
 
        <Route path="/reaction/adddailyupdate/:id" element={<AddDailystatus />} />
+
+       <Route path="/allstatus" element={<AllDailyStatus />} />
+
+       <Route path="/allstatus/dailyupdate/:id" element={<Dailyupdate />} />
+
+       <Route path="/report" element={<Report />} />
+
+       <Route path="/customerdailyupdate" element={<Customerdaliupdate />} />
+
+       <Route path="/updaterequirment" element={<Updaterequirment />} />
+
+       <Route path="/search" element={<Search />} />
+
+       <Route path="/history" element={<History />} />
+       <Route path="/cusreport" element={<CustomerReport />} />
+
 
 
        <Route path="/qr" element={<QR />} />
