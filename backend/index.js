@@ -4,6 +4,8 @@ import userRoutes from './routes/user.route.js';
 import issueRoutes from './routes/issues.route.js';
 import authRoutes from './routes/auth.route.js';
 import customerRoutes from './routes/customer.route.js';
+import feedbackRoute from './routes/SupportRoutes/FeedBackRoute.js'
+import faqRoute from './routes/SupportRoutes/FAQRoute.js'
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -33,6 +35,10 @@ app.listen(3000, () => {
   app.use('/backend/customer', customerRoutes);
 
   app.use('/backend/issues', issueRoutes);
+
+  // Ishini's Routes
+  app.use('/feedback', feedbackRoute)
+  app.use('/faq', faqRoute)
 
 
   app.use( (err ,req,res ,next)=>{
