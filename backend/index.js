@@ -8,6 +8,7 @@ import feedbackRoute from './routes/SupportRoutes/FeedBackRoute.js'
 import faqRoute from './routes/SupportRoutes/FAQRoute.js'
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
+import cors from 'cors'
 dotenv.config();
 
 mongoose.connect(process.env.MONGO).then(() => {
@@ -22,7 +23,7 @@ mongoose.connect(process.env.MONGO).then(() => {
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 app.use(cookieParser()) ;
 
 app.listen(3000, () => {
