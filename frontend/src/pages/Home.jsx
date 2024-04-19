@@ -37,14 +37,14 @@ export default function Home() {
         log(error);
       }
     };
-    fetchServiceListings(); // Fetch service listings first
+    fetchServiceListings(); // Fetch service listings first (this should be call in the useEffect because we want to execute this whithot any user affects)
     fetchPackageListings(); // Fetch package listings separately
   }, []);
 
   
 
   return (
-    <div>
+    <div className='bg-slate-200'>
 
        {/* top */}
        <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
@@ -87,7 +87,7 @@ export default function Home() {
 
        {/* listing results for offer, sale and rent */}
 
-       <div className='max-w-fit mx-auto p-3 flex flex-col  gap-8 my-10'>
+       <div className=' max-w-fit mx-auto p-3 flex flex-col  gap-8 my-10'>
         
         {serviceListings && serviceListings.length > 0 && (
           <div className=''>

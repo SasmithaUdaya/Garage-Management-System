@@ -50,6 +50,8 @@ export default function search() {
   }, [location.search]);
 
   const handleChange = (e) => {
+    //validation part
+
     if (
       e.target.id === "all" ||
       e.target.id === "service" ||
@@ -62,17 +64,7 @@ export default function search() {
       setSidebardata({ ...sidebardata, searchTerm: e.target.value });
     }
 
-    //   if (
-    //     e.target.id === 'parking' ||
-    //     e.target.id === 'furnished' ||
-    //     e.target.id === 'offer'
-    //   ) {
-    //     setSidebardata({
-    //       ...sidebardata,
-    //       [e.target.id]:
-    //         e.target.checked || e.target.checked === 'true' ? true : false,
-    //     });
-    //   }
+    
 
     if (e.target.id === "sort_order") {
       const sort = e.target.value.split("_")[0] || "created_at";
@@ -102,6 +94,9 @@ export default function search() {
     const searchQuery = urlParams.toString();
     const res = await fetch(`/Backend/listing/get?${searchQuery}`);
     const data = await res.json();
+
+    //validate the data length is less than 9
+    
     if (data.length < 9) {
       setShowMore(false);
     }
