@@ -13,6 +13,10 @@ const appointmentSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    customerEmail: {
+        type: String,
+        required: true,
+    },
     serviceType: {
         type: String,
         required: true
@@ -34,6 +38,10 @@ const appointmentSchema = new mongoose.Schema({
         required: true
     },
     completed: {
+        type: Boolean,
+        required: true
+    },
+    absent: {
         type: Boolean,
         required: true
     }

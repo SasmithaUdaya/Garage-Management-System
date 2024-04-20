@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Section = ({ heading, text, Button, imageUrl }) => {
+const Section = ({ heading, text, Button, imageUrl, onClick }) => {
   return (
     <section className="px-20 pt-20">
       <div>
@@ -8,7 +8,7 @@ const Section = ({ heading, text, Button, imageUrl }) => {
         <h2 className="text-3xl text-white font-bold mb-2 flex justify-end">{heading}</h2>
         <p className="text-white flex justify-end">{text}</p>
         <div className="flex justify-end">
-          <button className="bg-blue-500 text-white py-2 px-4 mt-4 rounded">{Button}</button>
+          <button className="bg-blue-500 text-white py-2 px-4 mt-4 rounded" onClick={onClick}>{Button}</button>
         </div>
       </div>
     </section>

@@ -7,7 +7,7 @@ export default function AppointmentHistory() {
 
   useEffect(() => {
     // Fetch appointment data from the server
-    axios.get("http://localhost:3000/appointmenthistory")
+    axios.get("http://localhost:3000/appointmenthistory/appointmenthistory")
       .then(response => {
         setAppointments(response.data);
       })
@@ -18,7 +18,7 @@ export default function AppointmentHistory() {
 
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:3000/delete/${id}`)
+    axios.delete(`http://localhost:3000/appointmenthistory/delete/${id}`)
       .then(response => {
         // Remove the deleted appointment from the state
         setAppointments(appointments.filter(appointment => appointment._id !== id));
@@ -31,13 +31,13 @@ export default function AppointmentHistory() {
 
 
   return (
-    <div className="bg-black min-h-screen py-20">
+    <div className="bg-gray-100 min-h-screen py-20">
       <div className="container mx-auto">
         <div className="flex items-center justify-center mb-8">
-          <h2 className="text-white text-3xl">Appointment History Portal</h2>
+          <h2 className="text-3xl font-semibold text-gray-800">Appointment History Portal</h2>
         </div>
 
-        <div className="bg-white rounded-lg p-4">
+        <div className="bg-white rounded-lg p-6 shadow-md">
           <Link to="/appointmentcreate" className="bg-green-500 text-white py-2 px-4 rounded-md mb-4 inline-block">Create another appointment</Link>
           <table className="table-auto w-full">
             <thead>
@@ -45,8 +45,8 @@ export default function AppointmentHistory() {
                 <th className="py-2 px-4">Customer Name</th>
                 <th className="py-2 px-4">Customer ID</th>
                 <th className="py-2 px-4">Contact Number</th>
+                <th className="py-2 px-4">Email</th>
                 <th className="py-2 px-4">Service Type</th>
-                <th className="py-2 px-4">Vehicle Model</th>
                 <th className="py-2 px-4">Vehicle Number</th>
                 <th className="py-2 px-4">Appointment Date</th>
                 <th className="py-2 px-4">Time Slot</th>
@@ -59,14 +59,26 @@ export default function AppointmentHistory() {
                   <td className="py-2 px-4">{appointment.customerName}</td>
                   <td className="py-2 px-4">{appointment.customerId}</td>
                   <td className="py-2 px-4">{appointment.contactNumber}</td>
+                  <td className="py-2 px-4">{appointment.customerEmail}</td>
                   <td className="py-2 px-4">{appointment.serviceType}</td>
-                  <td className="py-2 px-4">{appointment.vehicleModel}</td>
                   <td className="py-2 px-4">{appointment.vehicleNumber}</td>
                   <td className="py-2 px-4">{appointment.appointmentDate}</td>
                   <td className="py-2 px-4">{appointment.timeSlot}</td>
                   <td className="py-2 px-4">
-                    <Link to={`/appointmentupdate/${ appointment._id }`} className="bg-blue-500 text-white py-1 px-2 rounded-md mr-2">Update</Link>
-                    <button className="bg-red-500 text-white py-1 px-2 rounded-md" onClick={(e) => handleDelete(appointment._id)} >Delete</button>
+                    {!appointment.absent ? (
+                      <>
+                        {!appointment.completed ? (
+                          <>
+                            <Link to={`/appointmentupdate/${appointment._id}`} className="bg-blue-500 text-white py-1 px-2 rounded-md mr-2">Update</Link>
+                            <button className="bg-red-500 text-white py-1 px-2 rounded-md" onClick={(e) => handleDelete(appointment._id)}>Delete</button>
+                          </>
+                        ) : (
+                          <button className="bg-green-500 text-white py-1 px-2 rounded-md">Completed</button>
+                        )}
+                      </>
+                    ) : (
+                      <button className="bg-gray-500 text-white py-1 px-2 rounded-md">You were absent</button>
+                    )}
                   </td>
                 </tr>
               ))}

@@ -14,7 +14,7 @@ function CustomerProfile() {
 
   useEffect(() => {
     // Fetch the count of true appointments for customer ID 1378651
-    axios.get("http://localhost:3000/customerprofile/1378651")
+    axios.get("http://localhost:3000/customerprofile/customerprofile/1378651")
       .then(response => {
         setLoyaltyPoints(response.data.count);
       })
@@ -40,6 +40,32 @@ function CustomerProfile() {
           >
             Loyalty points
           </button>
+          <button
+              className={`block w-full py-2 px-4 rounded-md ${activeTab === 'Accident management' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800 hover:bg-blue-500 hover:text-white'}`}
+              onClick={() => handleTabClick('Accident management')}
+            >
+  Accident Management
+</button>
+<button
+    className={`block w-full py-2 px-4 rounded-md ${activeTab === 'Vehicle details' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800 hover:bg-blue-500 hover:text-white'}`}
+    onClick={() => handleTabClick('Vehicle details')}
+  >
+    Vehicle Details
+  </button>
+
+  <button
+    className={`block w-full py-2 px-4 rounded-md ${activeTab === 'Daily status' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800 hover:bg-blue-500 hover:text-white'}`}
+    onClick={() => handleTabClick('Daily status')}
+  >
+    Daily Status
+  </button>
+
+  <button
+    className={`block w-full py-2 px-4 rounded-md ${activeTab === 'Report' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800 hover:bg-blue-500 hover:text-white'}`}
+    onClick={() => handleTabClick('Report')}
+  >
+    Report
+  </button>
           {/* Add other navigation buttons */}
         </div>
         <div className="mt-20 p-4">
@@ -56,12 +82,18 @@ function CustomerProfile() {
       </div>
       {/* Second container */}
       <div className="flex-1 p-4">
-        <div className="bg-yellow-200 p-4 rounded-md h-1/3">
-          <h1 className="text-2xl font-bold mb-4">Loyalty Point</h1>
-          {/* Display loyalty points count */}
-          <p className="text-9xl text-red-500">{loyaltyPoints}</p>
-        </div>
-      </div>
+  <div className="bg-yellow-200 p-4 rounded-md h-1/3 flex flex-col justify-center items-center">
+    <h1 className="text-2xl font-bold mb-4">Loyalty Point</h1>
+    {/* Display loyalty points count and button */}
+    <div className="flex items-center">
+    <p className="text-9xl text-red-500">{loyaltyPoints}</p>
+            {(loyaltyPoints >= 3 && loyaltyPoints < 8) && (
+              <button className="bg-green-500 text-white py-1 px-2 rounded-md ml-4">Claim discount</button>
+            )}
+     </div>
+  </div>
+</div>
+
     </div>
   );
 }
