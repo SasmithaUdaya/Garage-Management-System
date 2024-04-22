@@ -13,7 +13,8 @@ import Signup from "./pages/Signup";
 import Customersignup from "./pages/Customersignup";
 import PrivateRoute from "./components/PrivateRoute";
 import Staffsignin from "./pages/Staffsignin";
-import User from "./components/User";
+// import User from "./components/User";
+
 
 // Ishini's Imports
 import AdminFeedBacks from "./pages/SupportPages/Home";
@@ -22,7 +23,7 @@ import EditFeedback from "./pages/SupportPages/EditFeedback";
 import DeleteFeedback from "./pages/SupportPages/DeleteFeedback";
 import ShowFeedback from "./pages/SupportPages/ShowFeedback";
 import CreateFAQ from "./pages/SupportPages/CreateFAQ";
-import RealHome from "./pages/SupportPages/RealHome";
+// import RealHome from "./pages/SupportPages/RealHome";
 import FAQs from "./pages/SupportPages/FAQs";
 import Report from "./pages/SupportPages/Report";
 
@@ -34,17 +35,17 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<Signin />} />
 
-        <Route element={<PrivateRoute />}>
+        {/* <Route element={<PrivateRoute />}>
           <Route path="/signup" element={<Signup />} />
         </Route>
 
         <Route element={<PrivateRoute />}>
           <Route path="/admin" element={<Admin />} />
-        </Route>
+        </Route> */}
 
         <Route path="/about" element={<About />} />
 
-        <Route element={<PrivateRoute />}>
+        {/* <Route element={<PrivateRoute />}>
           <Route path="/progresssupervisor" element={<Progresssupervisor />} />
         </Route>
 
@@ -54,16 +55,26 @@ export default function App() {
 
         <Route element={<PrivateRoute />}>
           <Route path="/customer" element={<Customer />} />
-        </Route>
+        </Route> */}
 
         <Route path="/customersignup" element={<Customersignup />} />
 
-        <Route element={<PrivateRoute />}>
+        {/* <Route element={<PrivateRoute />}>
           <Route path="/staffsignin" element={<Staffsignin />} />
         </Route>
 
         <Route element={<PrivateRoute />}>
           <Route path="/user" element={<User />} />
+        </Route> */}
+
+        <Route element={<PrivateRoute />}>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/progresssupervisor" element={<Progresssupervisor />} />
+        <Route path="/employee" element={<Employee />} />
+        <Route path="/customer" element={<Customer />} />
+        <Route path="/staffsignin" element={<Staffsignin />} />
+        <Route path="/adminFeeds" element={<AdminFeedBacks />} />
         </Route>
 
         {/* Ishinis's Routings */}
@@ -72,7 +83,7 @@ export default function App() {
         <Route path="/faqs" element={<FAQs />} />
 
         <Route path="/faq/create" element={<CreateFAQ />} />
-        <Route path="/adminFeeds" element={<AdminFeedBacks />} />
+       
         <Route path="/report" element={<Report />} />
         <Route path="/feedback/details/:id" element={<ShowFeedback />} />
         <Route path="/feedback/edit/:id" element={<EditFeedback />} />

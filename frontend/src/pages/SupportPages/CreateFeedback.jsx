@@ -32,11 +32,30 @@ const CreateFeedback = () => {
   }, []);
 
   const handleSaveFeedback = async (e) => {
+    e.preventDefault();
+  
+    const emailPattern = /^[^\s@]+@gmail\.com$/;
+  
+    if (!emailPattern.test(Email)) {
+      toast("Please enter a valid email.", {
+        type: 'error',
+      });
+      return;
+    }
+  
+    if (Rating === 0) {
+      toast("Please rate your experience.", {
+        type: 'error',
+      });
+      return;
+    }
+  
     const data = {
       Email,
       Description,
       Rating,
     };
+  
     setLoading(true);
     await axios
       .post("http://localhost:3000/feedback/addFeedback", data)
@@ -52,23 +71,15 @@ const CreateFeedback = () => {
       })
       .catch((error) => {
         setLoading(false);
-        // alert('An error happened. Please Check Console');
-        enqueueSnackbar("Error", { variant: "error " });
+        enqueueSnackbar("Error", { variant: "error" });
         toast.error("Error")
         console.log(error);
       });
   };
+  
 
   return (
-    <div
-      className="p-4"
-      // style={{
-      //   backgroundImage: `url(${backgroundImg})`,
-      //   backgroundSize: "cover",
-      //   backgroundPosition: "center",
-      //   height: "full",
-      // }}
-    >
+    <div className="p-4">
       <div className="p-4 flex items-center">
         <BackButton />
         <span className="p-4"> </span>
@@ -98,7 +109,7 @@ const CreateFeedback = () => {
             <div className="my-4">
               <label className="text-m mr-4 text-black">Email</label>
               <input
-                type="text"
+                type="email"
                 value={Email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="border-2 border-gray-500 px-4 py-2 w-full"
@@ -107,12 +118,6 @@ const CreateFeedback = () => {
             <div className="my-4 ">
               <label className="text-lg mr-4 text-black">Rate your experience..</label>
               <StarRating value={Rating} onChange={setRating} />
-              {/* <input
-                type="text"
-                value={Rating}
-                onChange={(e) => setRating(e.target.value)}
-                className="border-2 border-gray-500 px-4 py-2 w-full"
-              /> */}
             </div>
             <div className="my-1">
               <label className="text-lg mr-4 text-black">Leave Your Feedback Here...</label>

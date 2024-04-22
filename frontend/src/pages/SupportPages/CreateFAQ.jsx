@@ -40,15 +40,15 @@ const CreateFAQ = () => {
         enqueueSnackbar("FAQ created successfully", {
           variant: "success",
         });
-        toast.success("Created Successfully")
+        toast.success("Created Successfully");
         setTimeout(() => {
-          window.location.reload()
-        }, 1000);          
+          window.location.reload();
+        }, 1000);
       })
       .catch((error) => {
         setLoading(false);
         enqueueSnackbar("Error", { variant: "error " });
-        toast.error("Error")
+        toast.error("Error");
         console.log(error);
       });
   };
@@ -75,9 +75,9 @@ const CreateFAQ = () => {
           </button>
         </Link>
         <Link to="/report">
-        <button className="bg-gray-300 hover:bg-gray-400 text-yellow-600 px-4 py-1 rounded-lg w-72 h-15 font-bold text-lg shadow-md">
-          Feedback Report
-        </button>
+          <button className="bg-gray-300 hover:bg-gray-400 text-yellow-600 px-4 py-1 rounded-lg w-72 h-15 font-bold text-lg shadow-md">
+            Feedback Report
+          </button>
         </Link>
       </div>
 
@@ -92,29 +92,46 @@ const CreateFAQ = () => {
         >
           Frequently Asked Questions
         </h1>
-        
+
         {/* Search bar */}
-      <div className=" flex my-4">
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search FAQs..."
-          className="border-2 border-gray-600 px-4 py-2 w-full rounded mr-12 mt-15"
-        />
-      </div>
+        <div className=" flex my-4">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search FAQs..."
+            className="border-2 border-gray-600 px-4 py-2 w-full rounded mr-12 mt-15"
+          />
+        </div>
       </div>
 
       <div className="grid grid-cols-2">
         <div className="col-span-1">
+          {filteredFAQ.length === 0 && (
+            <p className="text-red-500 mt-4">No Results Found</p>
+          )}
           <FAQcard faq={filteredFAQ} />
         </div>
+
         <div className="col-span-1">
           <div
             className="flex flex-col border-2 border-gray-600 rounded-xl w-[400px] p-4 mx-auto"
-            style={{ backgroundColor: "rgba(255, 255, 255, 0.5)", position: "relative" }}
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.5)",
+              position: "relative",
+            }}
           >
-            <h1 style={{ textAlign: 'right', fontWeight: 'bold', fontStyle: 'italic', color: '#FFD700', fontSize: '2rem' }}>Add New FAQ</h1>
+            <h1
+              style={{
+                textAlign: "right",
+                fontWeight: "bold",
+                fontStyle: "italic",
+                color: "#FFD700",
+                fontSize: "2rem",
+              }}
+            >
+              Add New FAQ
+            </h1>
 
             <div className="my-4">
               <label className="text-m mr-4 text-black">Question</label>
@@ -145,8 +162,6 @@ const CreateFAQ = () => {
           </div>
         </div>
       </div>
-
-      
     </div>
   );
 };

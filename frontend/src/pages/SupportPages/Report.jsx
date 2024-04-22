@@ -87,7 +87,7 @@ const Report = () => {
         >
           Feedback report
         </h1>
-        <button className="bg-gray-300 text-yellow-600 px-4 py-1 rounded-lg w-50 h-15 font-bold text-lg shadow-md" onClick={handleDownload}>
+        <button className="bg-gray-300 text-blue-800 px-4 py-1 rounded-lg w-50 h-15 font-bold text-lg shadow-md" onClick={handleDownload}>
           Download PDF
         </button>
       </div>
@@ -108,22 +108,22 @@ const Report = () => {
               <td className="border border-slate-700 rounded-md text-center">
                 {index + 1}
               </td>
-              <td className="border border-slate-700 rounded-md text-center max-md:hidden">
+              <td className="border border-slate-700 rounded-md text-center">
                 {feedbackItems.Email}
               </td>
-              <td className="border border-slate-700 rounded-md text-center max-md:hidden">
+              <td className="border border-slate-700 rounded-md text-wrap mr-9  ">&nbsp;
                 {feedbackItems.Description}
               </td>
-              <td className="border border-slate-700 rounded-md text-center max-md:hidden">
+              <td className="border border-slate-700 rounded-md text-center">
                 {feedbackItems.Rating}
               </td>
               {feedbackItems.Rating >= 3 && (
-                <td className="border border-slate-700 rounded-md text-center max-md:hidden">
+                <td className="border border-slate-700 rounded-md text-center">
                   Positive
                 </td>
               )}
               {feedbackItems.Rating < 3 && (
-                <td className="border border-slate-700 rounded-md text-center max-md:hidden">
+                <td className="border border-slate-700 rounded-md text-center">
                   Negative
                 </td>
               )}

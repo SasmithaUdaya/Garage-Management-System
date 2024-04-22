@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import {BsChevronLeft} from 'react-icons/bs';
 
-const BackButton = ({ destination = '/Home'}) => {
+const BackButton = ({ destination = '/'}) => {
   return (
     <div className='flex'>
         <Link 

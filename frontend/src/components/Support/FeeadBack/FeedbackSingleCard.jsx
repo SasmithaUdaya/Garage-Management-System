@@ -50,7 +50,7 @@ const FeedbackSingleCard = ({ feedback }) => {
   return (
     <div
       key={feedback.Email}
-      className="border-4 border-gray-400 rounded-lg px-4 py-2 m-4 relative bg-gradient-to-r from-white to-gray-300 transition duration-300 ease-in-out hover:border-white"
+      className="border-4 border-gray-400 rounded-lg px-4 py-2 m-4 relative bg-gradient-to-r from-white to-gray-300 transition duration-300 ease-in-out hover:border-gray-600"
     >
       <div className="flex justify-start items-center gap-x-2">
         <BiUserCircle className="text-blue-700 text-2xl" />

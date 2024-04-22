@@ -5,6 +5,7 @@ const faqSchema = mongoose.Schema(
         Question:{
             type: String,
             required: true,
+            unique: true,
         },
         Answer:{
             type: String,

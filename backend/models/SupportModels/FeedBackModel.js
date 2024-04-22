@@ -9,12 +9,15 @@ const feedbackSchema = mongoose.Schema(
         Description:{
             type: String,
             required: true,
+            unique: true,
         },
         Rating:{
             type: Number,
             required: true,
             default: 0
         },
+
+      
 
     },
     {

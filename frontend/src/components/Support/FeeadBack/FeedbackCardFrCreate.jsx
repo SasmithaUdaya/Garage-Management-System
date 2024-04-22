@@ -1,17 +1,17 @@
 // import { Link } from "react-router-dom";
 import { BiUserCircle } from "react-icons/bi";
-import { AiOutlineEdit } from "react-icons/ai";
+// import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
-import { MdOutlineDelete } from "react-icons/md";
+// import { MdOutlineDelete } from "react-icons/md";
 import { useState } from "react";
 // import FeedbackModal from "./FeedbackModal";
-import DeleteFeedbackModal from "./DeleteFeedbackModal";
+// import DeleteFeedbackModal from "./DeleteFeedbackModal";
 import InfoFeedbackModal from "./InfoFeedbackModal";
-import EditFeedbackModal from "./EditFeedbackModal";
+// import EditFeedbackModal from "./EditFeedbackModal";
 
 const FeedbackCardFrCreate = ({ feedback }) => {
-  const [EditFbModal, setEditFbModal] = useState(false);
-  const [DelFbModal, setDelFbModal] = useState(false);
+  // const [EditFbModal, setEditFbModal] = useState(false);
+  // const [DelFbModal, setDelFbModal] = useState(false);
   const [InfoFbModal, setInfoFbModal] = useState(false);
 
   // Function to truncate description text to a fixed length
@@ -70,33 +70,33 @@ const FeedbackCardFrCreate = ({ feedback }) => {
           onClick={() => setInfoFbModal(true)}
         />
 
-        <AiOutlineEdit
+        {/* <AiOutlineEdit
           className="text-xs text-yellow-700 hover:text-black"
           onClick={() => setEditFbModal(true)}
         />
         <MdOutlineDelete
           className="text-xs text-red-700 hover:text-black"
           onClick={() => setDelFbModal(true)}
-        />
+        /> */}
       </div>
-      {DelFbModal && (
+      {/* {DelFbModal && (
         <DeleteFeedbackModal
           feedback={feedback}
           onClose={() => setDelFbModal(false)}
         />
-      )}
+      )} */}
       {InfoFbModal && (
         <InfoFeedbackModal
           feedback={feedback}
           onClose={() => setInfoFbModal(false)}
         />
       )}
-      {EditFbModal && (
+      {/* {EditFbModal && (
         <EditFeedbackModal
           feedback={feedback}
           onClose={() => setEditFbModal(false)}
         />
-      )}
+      )} */}
     </div>
   );
 };
