@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import SwiperCore from 'swiper';
 import 'swiper/css/bundle';
-import ListingItem from '../components/ListingItem';
+import ListingItem from '../../components/ListingItem';
 
 export default function Home() {
 
@@ -37,7 +37,7 @@ export default function Home() {
         log(error);
       }
     };
-    fetchServiceListings(); // Fetch service listings first (this should be call in the useEffect because we want to execute this whithot any user affects)
+    fetchServiceListings(); // Fetch service listings first
     fetchPackageListings(); // Fetch package listings separately
   }, []);
 
@@ -45,11 +45,30 @@ export default function Home() {
 
   return (
     <div>
+    <div className="flex justify-center mt-8">
+      <div className="relative">
+        <Link to="/create-service">
+          <button className="bg-slate-700 text-white rounded-lg px-6 py-3 mr-4 hover:bg-opacity-90 focus:outline-none">
+            Create Listing
+          </button>
+        </Link>
+        <Link to="/show-service">
+          <button className="bg-slate-700 text-white rounded-lg px-6 py-3 mr-4 hover:bg-opacity-90 focus:outline-none">
+            Show Listings
+          </button>
+        </Link>
+        <Link to="/show-report">
+          <button className="bg-red-700 text-white rounded-lg px-6 py-3 mr-4 hover:bg-opacity-90 focus:outline-none">
+            Generate Report
+          </button>
+        </Link>
+      </div>
+      </div>
 
        {/* top */}
        <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
         <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl'>
-        We are EG motors <span className='text-slate-500'>always</span>
+          We are EG motors <span className='text-slate-500'>always</span>
           <br />
           <span className='text-yellow-500'>be original</span>
         </h1>
@@ -89,7 +108,7 @@ export default function Home() {
 
        {/* listing results for offer, sale and rent */}
 
-       <div className=' max-w-fit mx-auto p-3 flex flex-col  gap-8 my-10'>
+       <div className='max-w-fit mx-auto p-3 flex flex-col  gap-8 my-10'>
         
         {serviceListings && serviceListings.length > 0 && (
           <div className=''>

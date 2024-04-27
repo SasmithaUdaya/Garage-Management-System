@@ -9,9 +9,9 @@ export default function Header() {
   const isAdmin = currentUser && currentUser.username === 'admin@gmail.com';//12345
   const isSupervisor = currentUser && currentUser.username === 'supervisor@gmail.com';
   const isStaff = currentUser && currentUser.email === 'staff@gmail.com';
-  
 
-  
+  //const isGarageAdmin = currentUser && currentUser.email === 'serviceadmin@gmail.com';
+
 
   return (
     <header className='bg-slate-200 shadow-sm'>
@@ -38,15 +38,16 @@ export default function Header() {
             <li className='text-slate-700 hover:underline'>About</li>
           </Link>
           {currentUser && !isStaff && (
-            <Link to={isAdmin ? '/admin' : isSupervisor ? '/progresssupervisor' : '/customer'}>
+            <Link to={isAdmin ? '/admin' : isSupervisor ? '/progresssupervisor' : '/customer '}>
               <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} alt="profile" />
             </Link>
           )}
-          {(!currentUser || isStaff) && ( // Render sign in or sign out based on user status
+          {(!currentUser || isStaff ) && ( // Render sign in or sign out based on user status
             <Link to='/signin'>
               <li className='text-slate-700 hover:underline'>Sign In</li>
             </Link>
           )}
+         
         </ul>
 
       </div>
