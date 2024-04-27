@@ -6,12 +6,10 @@ import CustomerProfile from './pages/CustomerProfile'
 import GarageManagerDash from './pages/GarageManagerDash'
 import AppointmentHistory from './pages/AppointmentHistory'
 import AgentAppointment from './pages/AgentAppointment'
-import Header from '../components/Header'
 
 
 export default function App() {
   return <BrowserRouter>
-          <Header/>
           <Routes>
             <Route path='/appointmentlanding' element={<Appointment/>} /> 
             <Route path='/appointmentcreate' element={<CreateAppointment/>} />  

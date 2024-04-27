@@ -55,8 +55,8 @@ export default function CreateAppointment() {
   ];
   
   const validateForm = () => {
-    if (!/^\d+$/.test(contactNumber)) {
-      window.alert('Contact number must contain only numbers');
+    if (!/^\d{10}$/.test(contactNumber)) {
+      window.alert('Contact number must contain 10 digits');
       return false;
     }
 
