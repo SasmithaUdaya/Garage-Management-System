@@ -65,7 +65,7 @@ export default function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/update-listing/:listingId" element={<UpdateListing />} />
           <Route path="/progresssupervisor" element={<Progresssupervisor />} />
-          <Route path="/adminGarage" element={<AdminDashboard />} />
+          <Route path="/adminGarage" element={<Admindashboard />} />
           <Route path="/employee" element={<Employee />} />
           <Route path="/customer" element={<Customer />} />
           <Route path="/staffsignin" element={<Staffsignin />} />
