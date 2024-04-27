@@ -21,6 +21,7 @@ export default function Requiments() {
     vehicle: '',
     approvel: '',
     additional: '',
+    update: '',
   });
 
   useEffect(() => {
@@ -37,7 +38,7 @@ export default function Requiments() {
       fetchUserData();
     }
   }, [currentUser.email]);
-
+ 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
@@ -48,6 +49,7 @@ export default function Requiments() {
       const res = await axios.post(`http://localhost:5173/backend/reaction/addReaction`, formData);
       console.log(res.data);
       navigate('/customerview');
+      
     } catch (error) {
       console.error('Error updating issue:', error);
     }
@@ -154,7 +156,8 @@ export default function Requiments() {
           </button>
         </form>
 
-       <Link to='/updaterequirment'><button  className=' w-96 m-10 bg-gradient-to-r from-purple-600 to-blue-600 text-white border-black rounded-lg p-3 uppercase text-sm font-bold hover:opacity-90 disabled:opacity-80'>Update</button></Link> 
+
+       <Link to='/updaterequirment'><button style={{ position:'relative' , right:'40px' }} className=' w-96 m-10 bg-gradient-to-r from-purple-600 to-blue-600 text-white border-black rounded-lg p-3 uppercase text-sm font-bold hover:opacity-90 disabled:opacity-80'>Update</button></Link> 
       </div>
     </div>
   );

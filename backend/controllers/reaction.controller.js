@@ -61,19 +61,98 @@ export const getAllReactions = async (req , res , next) => {
 }
 
 
- export const updaterequirment = async(req , res , next) => {
+//  export const updaterequirment = async(req , res , next) => {
 
-   try{
 
-      const id = req.params.id ;
+
+//    try{
+
+//       const id = req.params.id ;
 
       
  
-      const updateData = await Requirments.findByIdAndUpdate(id, req.body, {new:true});
-      res.status(200).json(updateData);
+//       const updateData = await Requirments.findByIdAndUpdate(id, req.body, {new:true});
+//       res.status(200).json(updateData);
 
 
-   }catch( error){
-      next(error);
-   }
-}
+//    }catch( error){
+//       next(error);
+//    }
+
+          
+
+
+
+// }
+
+
+
+// export const updaterequirment = async (req, res, next) => {
+//    const update = req.body.update; 
+ 
+//    try {
+//      if (update === true) {
+//        res.status(200).json({ message: 'You can not update' });
+//      } else { 
+//        const id = req.params.id;
+//        const updateData = await Requirments.findByIdAndUpdate(id, req.body, { new: true });
+//        res.status(200).json(updateData);
+
+       
+//      }
+//    } catch (error) {
+//      next(error);
+//    }
+//  };
+ 
+
+export const updaterequirment = async (req, res, next) => {
+   try {
+       const id = req.params.id;
+
+       const requirment = await Requirments.findById(id);
+       if (!requirment) {
+           return res.status(404).json({ message: 'Employee not found' });
+       }
+
+       if(requirment.update === false){
+
+         requirment.tyre = req.body.tyre;
+         requirment.parts = req.body.parts;
+         requirment.approvel = req.body.approvel;
+         requirment.rdate = req.body.rdate;
+         requirment.time = req.body.time;
+         requirment.additional = req.body.additional;
+       }
+       
+         requirment.update = true;
+
+       const { update } = req.body;
+
+       
+
+       const updatedrequirment = await requirment.save();
+       
+       res.status(200).json(updatedrequirment);
+   } catch (error) {
+       next(error);
+    }
+};
+
+export const deletereaction = async(req , res ,next) => {
+
+    try{
+ 
+       const id = req.params.id ;
+ 
+       
+  
+        await Requirments.findByIdAndDelete(id);
+       res.status(200).json('Reaction has been deleted');
+ 
+ 
+    }catch( error){
+       next(error);
+    }
+ }
+ 

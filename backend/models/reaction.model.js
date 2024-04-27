@@ -52,7 +52,11 @@ const requirmentsSchema = new mongoose.Schema({
         required: true,
 
         default: Date.now
-    }
+    },
+    update : {
+        type :Boolean,
+        default : false
+    },
 
 
 },{ timestamps: true });

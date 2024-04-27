@@ -35,6 +35,7 @@ import Updaterequirment from './pages/Updaterequirment';
 import Search from './components/Search';
 import History from './pages/History';
 import CustomerReport from './pages/CustomerReport';
+import HaryUP from './pages/HaryUP';
 
 export default function App() {
   return (
@@ -119,6 +120,8 @@ export default function App() {
 
        <Route path="/allstatus/dailyupdate/:id" element={<Dailyupdate />} />
 
+
+
        <Route path="/report" element={<Report />} />
 
        <Route path="/customerdailyupdate" element={<Customerdaliupdate />} />
@@ -137,6 +140,10 @@ export default function App() {
        <Route path="/qrreder" element={<QRScanner />} />
 
 
+
+       <Route path="/haryup" element={<HaryUP />} />
+
+       
 
 
 

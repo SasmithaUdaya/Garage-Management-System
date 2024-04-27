@@ -7,9 +7,12 @@ import customerRoutes from './routes/customer.route.js';
 import dailyRoutes from './routes/daily.route.js';
 import reactionRoutes from './routes/reaction.route.js'
 import shistoryRoutes from './routes/statushistory.route.js'
+import emailRouter from './routes/email.route.js';
+import apRouter from './routes/ap.route.js';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 dotenv.config();
+
 
 mongoose.connect(process.env.MONGO).then(() => {
 
@@ -39,6 +42,8 @@ app.listen(3000, () => {
   app.use('/backend/daily',dailyRoutes);
   app.use('/backend/reaction',reactionRoutes);
   app.use('/backend/statushistory',shistoryRoutes);
+  app.use('/backend/email', emailRouter);
+  app.use('/backend/ap', apRouter);
 
   
 

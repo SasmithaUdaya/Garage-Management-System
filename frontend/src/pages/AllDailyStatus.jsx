@@ -15,8 +15,7 @@ export default function AllDailyStatus() {
       try {
         const res = await axios.get('/backend/daily/getAllStatus');
         setFormData(res.data);
-        setFilterData(res.data);
-
+ 
       } catch (error) {
         console.log(error.message);
       }
@@ -31,6 +30,8 @@ export default function AllDailyStatus() {
       });
 
       setFormData(formData.filter((issue) => issue._id !== id));
+      alert('Successfully Deleted');
+
     } catch (error) {
       console.log(error.message);
     }
@@ -61,15 +62,15 @@ export default function AllDailyStatus() {
       </div>
       <div className='w-3/4 p-10'>
       <div> 
-      <input type='text' placeholder='Search...' className=' my-4 ' value={query} onChange={(e) => handleSearch(e)}/>
+      <input type='text' placeholder='Fillter...' className='  ' value={query} onChange={(e) => handleSearch(e)}/>
       </div>
         <table className='w-full border-collapse border'>
           <thead>
             <tr className='bg-gray-100'>
               <th className='border border-gray-300 px-4 py-2'>Email</th>
               <th className='border border-gray-300 px-4 py-2'>Vehicle Number</th>
-              <th className='border border-gray-300 px-4 py-2'>Date</th>
               <th className='border border-gray-300 px-4 py-2'>Status</th>
+              <th className='border border-gray-300 px-4 py-2'>Date</th>
               <th className='border border-gray-300 px-4 py-2'>Edit</th>
               <th className='border border-gray-300 px-4 py-2'>Detele</th>
 

@@ -36,7 +36,7 @@ export default function Customerdaliupdate() {
 
   return (
     <div style={{ display: 'flex', padding: '0px' }}>
-      <div style={{ width: '250px', background: 'black', padding: '0px' }}><Customerdashboard /></div>
+      <div style={{ width: '250px', background: 'black', padding: '0px' ,height:'500px'}}><Customerdashboard /></div>
       <div className='mx-auto'>
         <h1 className='text-3xl text-center font-bold my-5 text-yellow-500'>Vehicle Status</h1>
 

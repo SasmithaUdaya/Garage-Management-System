@@ -26,6 +26,7 @@ export default function View() {
       });
 
       setFormData(formData.filter((issue) => issue._id !== id));
+      alert('Successfully Deleted');
     } catch (error) {
       console.log(error.message);
     }
@@ -62,13 +63,13 @@ export default function View() {
                 <td className='border border-gray-300 px-4 py-2'>{repair.tyre}</td>
                 <td className='border border-gray-300 px-4 py-2'>{repair.parts}</td>
                 <td className='border border-gray-300 px-4 py-2'>{new Date(repair.date).toLocaleDateString()}</td>
-                <td className='border border-gray-300 px-4 py-2 '>
+                <td className='border border-gray-300 px-4 py-2'>
                   <div className='flex gap-4'>
-                    <button onClick={() => deleteIssue(repair._id)} className='text-red-800'>
+                    <button onClick={() => deleteIssue(repair._id)} className='text-red-800' style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}>
                       <FaTrash />
                     </button>
                     <Link to={`updateissue/${repair._id}`}>
-                      <button>
+                      <button style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}>
                         <FaEdit />
                       </button>
                     </Link>

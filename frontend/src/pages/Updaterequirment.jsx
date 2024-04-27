@@ -10,6 +10,8 @@ export default function Updaterequirment() {
 
     const { currentUser } = useSelector((state) => state.user);
     const navigate = useNavigate();
+    const [error, setError] = useState(null);
+
     const { email } = useParams();
 
     const [formData, setFormData] = useState({
@@ -23,7 +25,7 @@ export default function Updaterequirment() {
         rdate: '',
         time: '',
         additional: '' ,
-
+        update: '',
         
        
       });
@@ -55,13 +57,28 @@ export default function Updaterequirment() {
 
         //   await axios.put(`/backend/reaction/updaterequirment'/${id}`, formData);
           const res = await axios.put(`/backend/reaction/updaterequirment/${formData._id}`, formData);
+          // const res = await axios.put(`/backend/reaction/updaterequirment/${formData._id}`, {
+          //   ...formData,
+          //   update: true,
+          // });
+          
       console.log(res.data);
-          alert('Requirments update succesfully');
+          if(formData.update === true){
+            alert('You can not access update again');
+
+
+          }
+          if(formData.update === false){
+            alert('Requirments update succesfully');
+
+
+          }
+
+
           
     
         } catch (err) {
-          console.error(err);
-          alert('Error update daily status');
+         alert('Error update daily status');
         }
       };
 
@@ -169,6 +186,8 @@ export default function Updaterequirment() {
             placeholder='Add Additional'
           />
 
+
+
           <button
             type='submit'
             className=' w-96 bg-gradient-to-r from-purple-600 to-blue-600 text-white border-black rounded-lg p-3 uppercase text-sm font-bold hover:opacity-90 disabled:opacity-80'
@@ -177,10 +196,11 @@ export default function Updaterequirment() {
           </button>
         </form>
 
+
+
         
-{/* <p>{timeDifference}</p>
-<p>{currentTime}</p>
-<p>{repairTime}</p> */}
+      
+
       </div>
     </div>
   );

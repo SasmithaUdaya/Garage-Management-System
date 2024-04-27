@@ -67,6 +67,14 @@ export default function Repaiissue() {
     e.preventDefault();
     try {
       setLoading(true);
+
+      const vehicleNumberPattern = /^[A-Z]{2}-\d{4}$/; 
+      if (!formData.vehiclenumber || !vehicleNumberPattern.test(formData.vehiclenumber)) {
+        alert('Please enter a valid vehicle number in the format AB-1212.');
+        
+        setLoading(false);
+        return;
+      }
       const res = await fetch('backend/issues/create', {
         method: 'POST',
         headers: {
@@ -86,6 +94,18 @@ export default function Repaiissue() {
       setError(error.message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleVehicleNumberChange = (e) => {
+    const vehicleNumber = e.target.value.trim(); 
+    const vehicleNumberPattern = /^[A-Z]{2}-\d{4}$/; // AB-1212 pattern
+  
+    if (vehicleNumber === '' || vehicleNumberPattern.test(vehicleNumber)) {
+      setFormData({ ...formData, vehiclenumber: vehicleNumber });
+      setError(null);
+    } else {
+      setError('Invalid vehicle number');
     }
   };
 
@@ -122,8 +142,8 @@ export default function Repaiissue() {
                 )}
         </p>
             
-            {/* {uploadSuccess && <div className='text-green-500'>Image uploaded successfully!</div>}
-            {error && <div className=' bg-white text-red-500'>{error}</div>} */}
+            {/* {uploadSuccess && <div className='text-green-500'>Image uploaded successfully!</div>} */}
+            {error && <div className=' bg-white text-red-500'>{error}</div>}
           </div>
 
           <input
@@ -138,7 +158,7 @@ export default function Repaiissue() {
             placeholder='Vehicle'
             className='border p-3 rounded-lg w-96 bg-slate-900 text-white'
             id='vehiclenumber'
-            onChange={(e) => setFormData({ ...formData, vehiclenumber: e.target.value })}
+            onChange={handleVehicleNumberChange}
           />
           
           <select

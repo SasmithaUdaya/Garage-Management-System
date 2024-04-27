@@ -36,7 +36,7 @@ export default function CustomerReport() {
   
         if(getSearch.length > 0)
         {
-          const searchdata = formData.filter( (item) => item.vehiclenumber.toLowerCase().includes(getSearch));
+          const searchdata = formData.filter( (item) => item.details.toLowerCase().includes(getSearch));
           setFormData(searchdata);
         
         }else {

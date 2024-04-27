@@ -39,6 +39,7 @@ const handleSubmit = async (e) => {
 
     const res = await axios.post(`http://localhost:5173/backend/daily/createStatus`, formData);
     console.log(res.data);
+    alert('Status added successfully');
     navigate('/allstatus');
   } catch (error) {
     console.error('Error updating issue:', error);

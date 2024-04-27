@@ -4,9 +4,9 @@ import axios from 'axios';
 import jsPdf from 'jspdf';
 import 'jspdf-autotable';
 import logo from '../Image/logo.png';
+import { FaDownload } from 'react-icons/fa';
 
 
-// Replace the following line with the actual image data or URL
 
 
 export default function Report() {
@@ -99,9 +99,10 @@ export default function Report() {
                         className="my-4"
                         value={query}
                         onChange={(e) => handleSearch(e)}
+                        style={{ padding: '5px', border: '1px solid #ccc' }}
                     />
                 </div>
-                <table className="w-full border-collapse border" ref={tableRef}>
+                <table className="w-full border-collapse border" ref={tableRef} style={{ marginTop: '20px' }}>
                     <thead>
                         <tr className="bg-gray-100">
                             <th className="border border-gray-300 px-4 py-2">Email</th>
@@ -123,7 +124,9 @@ export default function Report() {
                         ))}
                     </tbody>
                 </table>
-                <button onClick={handleDownload}>Download Report</button>
+                <button onClick={handleDownload} style={{ marginTop: '20px', backgroundColor: '#4CAF50', color: 'white', border: 'none', padding: '10px 20px', textAlign: 'center', textDecoration: 'none', display: 'inline-block', fontSize: '16px', borderRadius: '8px' }}>
+                    Report <FaDownload />
+                </button>
             </div>
         </div>
     );
