@@ -65,7 +65,7 @@ export default function Staffsignin()  {
           <input type="email" placeholder='username'className='border p-3 rounded-lg' id='username'onChange={handleChange}/>
           <input type="password" placeholder='password'className='border p-3 rounded-lg' id='password'onChange={handleChange}/>
           <button disabled={loading} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>{loading ?'Loading...':'Sign in'}</button>
-          <OAuth/>
+          
         </form>
         
         {error && <p className='text-red-500 mt-5'>{error}</p>}

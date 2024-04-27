@@ -141,7 +141,7 @@ export default function User() {
   return (
     <div className='p-3 max-w-lg mx-auto basis-3/4 '> 
 
-        <h1 className='text-3xl  font-semibold my-7 text-center ml-50'>Profile</h1>
+        <h1 className='text-3xl  font-semibold my-20 text-center ml-50'></h1>
         
         <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-96' >
 
