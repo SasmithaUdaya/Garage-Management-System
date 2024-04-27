@@ -48,7 +48,7 @@ export default function Staffsignin()  {
         //           
 
         // }
-        navigate('/');
+        navigate('/adminGarage');
       }catch(error){
         dispatch(signInFailure(error.message));
   

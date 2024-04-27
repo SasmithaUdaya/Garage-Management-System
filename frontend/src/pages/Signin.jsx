@@ -45,7 +45,7 @@ export default function Signin() {
         dispatch(signInSuccess(data)) ;
 
         const email = formData.email;
-        if(email == 'staff@gmail.com'){//password = 12345
+        if(email == 'staff@gmail.com' || email == 'serviceadmin@gmail.com'){//password = 12345, //password = 123456
           navigate('/staffsignin');
         }else{
 

@@ -119,6 +119,9 @@ export default function User() {
           const handleSignOut = async () => {
             setShowSignOutModal(true); 
           };
+
+
+          
           const confirmSignOut = async () => {
         
         
