@@ -51,7 +51,7 @@ export default function CreateAppointment() {
     'Wheel Alignment',
     'Battery Replacement',
     'Transmission Service',
-    'AC Service',
+
   ];
   
   const validateForm = () => {
