@@ -1,4 +1,16 @@
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Appointment from './pages/Appointment'
+import CreateAppointment from './pages/CreateAppointment'
+import UpdateAppointment from './pages/UpdateAppointment'
+import CustomerProfile from './pages/CustomerProfile'
+import GarageManagerDash from './pages/GarageManagerDash'
+import AppointmentHistory from './pages/AppointmentHistory'
+import AgentAppointment from './pages/AgentAppointment'
+
+
+
+
 import CreateListin from './pages/services/CreateListing';
 import Listing from './pages/services/Listing';
 import UpdateListing from './pages/services/updateListing';
@@ -8,7 +20,7 @@ import ClientReport from './pages/services/ClientReport';
 import ClientSearch from './pages/services/ClientSearch';
 
 
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
+
 import Home from './pages/Home';
 
 import About from './pages/About';
@@ -51,7 +63,16 @@ export default function App() {
   return (
     <BrowserRouter>
       <Hearder />
+
       <Routes>
+      <Route path='/appointmentlanding' element={<Appointment/>} /> 
+            <Route path='/appointmentcreate' element={<CreateAppointment/>} />  
+            <Route path='/appointmentupdate/:id' element={<UpdateAppointment/>} />  
+            <Route path='/customerprofile' element={<CustomerProfile/>} />   
+            <Route path='/garagemanagerdash' element={<GarageManagerDash/>} />
+            <Route path='/appointmenthistory' element={<AppointmentHistory/>} /> 
+            <Route path='/agentappointment' element={<AgentAppointment/>} /> 
+            <Route path='/customerprofile' element={<CustomerProfile/>} /> 
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/about" element={<About />} />
@@ -155,6 +176,7 @@ export default function App() {
      </Routes>
      </BrowserRouter>
   )
+
 }
 
 //This is first comment
