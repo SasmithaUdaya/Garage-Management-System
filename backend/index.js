@@ -1,3 +1,40 @@
+
+const express = require('express')
+const mongoose = require('mongoose')
+const cors = require('cors')
+const appointment = require ('./model/appointment');
+
+const appointmentRoute = require('./routes/AppointmentCreate');
+const updateRoute = require('./routes/AppointmentUpdate');
+const historyRoute = require('./routes/AppointmentHistory');
+const appointmentdeleteRoute = require('./routes/AppointmentHistory');
+const garageadminRoute = require('./routes/GarageAdmin');
+const completedRoute = require('./routes/GarageAdmin');
+const absentRoute = require('./routes/GarageAdmin');
+const customerprofileRoute = require('./routes/CustomerProfile');
+
+
+
+
+
+app.use(cors())
+app.use(express.json())
+
+
+
+app.use('/appointmentcreate',appointmentRoute );
+app.use('/appointmentupdate', updateRoute);
+app.use('/appointmenthistory', historyRoute);
+app.use('/appointmenthistory', appointmentdeleteRoute);
+app.use('/garagemanagerdash', garageadminRoute);
+app.use('/garagemanagerdash', completedRoute);
+app.use('/garagemanagerdash', absentRoute);
+app.use('/customerprofile', customerprofileRoute);
+
+
+
+
+
 import express from 'express';
 import mongoose from 'mongoose';
 import userRoutes from './routes/user.route.js';
@@ -29,7 +66,7 @@ mongoose.connect(process.env.MONGO).then(() => {
 
 const app = express();
 
-app.use(express.json());
+
 
 app.use(cookieParser()) ;
 
@@ -62,3 +99,4 @@ app.listen(3000, () => {
     })
   }); 
    
+
