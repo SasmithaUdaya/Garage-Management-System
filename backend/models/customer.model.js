@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const customerSchema = new mongoose.Schema({
     name:{
         type:String,
-        required:true,
+        // required:true,
     },
       email:{
         type:String,
@@ -18,13 +18,13 @@ const customerSchema = new mongoose.Schema({
     },
     phone_number:{
         type:String,
-        required:true,
+        // required:true,
         unique:true,
     },
   
     address:{
         type:String,
-        required:true,
+        // required:true,
 
     },
     avatar :{

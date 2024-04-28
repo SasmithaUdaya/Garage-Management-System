@@ -14,6 +14,19 @@ import Customersignup from './pages/Customersignup';
 import PrivateRoute from './components/PrivateRoute';
 import Staffsignin from './pages/Staffsignin';
 import User from './components/User';
+import Admindashboard from './components/Admindashboard';
+import EditUSer from './pages/EditUSer';
+import Fristattendence from './components/Fristattendence';
+import MarkAttedence from './components/MarkAttedence';
+import EviningMark from './components/EviningMark';
+import LeaveAttendence from './components/LeaveAttendence';
+import AddSalary from './pages/AddSalary';
+import Salary from './pages/Salary';
+import Salaryreport from './pages/Salaryreport';
+
+
+
+
 
 export default function App() {
   return (
@@ -28,6 +41,7 @@ export default function App() {
         <Route  element={<PrivateRoute />} >
          <Route path="/signup" element={<Signup/>} />
         </Route>
+        
 
         <Route  element={<PrivateRoute />} >
            <Route path="/admin" element={<Admin />} />
@@ -42,9 +56,14 @@ export default function App() {
         <Route  element={<PrivateRoute />} >
          <Route path="/employee" element={<Employee />} />
         </Route>
-                            
 
         <Route  element={<PrivateRoute />} >
+         <Route path="/edituser/:id" element={<EditUSer />} />
+        </Route>
+
+       
+        
+         <Route  element={<PrivateRoute />} >
            <Route path="/customer" element={<Customer />} />
         </Route>
         
@@ -57,7 +76,35 @@ export default function App() {
         <Route  element={<PrivateRoute />} >
            <Route path="/user" element={<User />} />
         </Route>
+
+        <Route  element={<PrivateRoute />} >
+          <Route path="/admindashboard" element={<Admindashboard />} />
+        </Route>
+
+        <Route path="/arrival" element={<Fristattendence />} />
+
+        <Route path="/arrival/mark/:id" element={<MarkAttedence />} />
+
+        <Route path="/leave" element={<EviningMark />} />
+
+        <Route path="/leave/emark/:id" element={<LeaveAttendence />} />
+
+        <Route path="/addsalary" element={<AddSalary />} />
+
+        {/* <Route path="/addsalary" element={<AddSalary />} /> */}
+
+        <Route path="/addsalary/salary/:id" element={<Salary/>} />
+
+        <Route path="/salaryreport" element={<Salaryreport />} />
+
         
+
+
+
+        
+
+
+       
 
 
         
@@ -65,5 +112,3 @@ export default function App() {
      </BrowserRouter>
   )
 }
-
-//This is first comment
