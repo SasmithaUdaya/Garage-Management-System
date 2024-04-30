@@ -1,16 +1,16 @@
 
 import express from "express";
-import {
-  deleteCustomer,
-  deleteUser,
-  test,
-  updateCustomer,
-  updateUser,
-  getUserListings,
-} from "../controllers/user.controller.js";
+// import {
+//   deleteCustomer,
+//   deleteUser,
+//   test,
+//   updateCustomer,
+//   updateUser,
+//   getUserListings,
+// } from "../controllers/user.controller.js";
 import { verifyToken } from "../utils/verifyUser.js";
 
-import { deleteCustomer, deleteUser, deleteUser2, getAll, getOne, test, update, updateCustomer, updateUser } from '../controllers/user.controller.js';
+import { deleteCustomer, deleteUser, deleteUser2, getAll, getOne, getUserListings, test, update, updateCustomer, updateUser } from '../controllers/user.controller.js';
 
 
 

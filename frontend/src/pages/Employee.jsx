@@ -1,8 +1,6 @@
-
-import React from 'react'
-import { Link } from 'react-router-dom'
+import  { useEffect, useState } from 'react';
 import Admindashboard from '../components/Admindashboard'
-import React, { useEffect, useState } from 'react';
+
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Button } from 'flowbite-react';
