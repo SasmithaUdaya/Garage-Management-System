@@ -9,19 +9,36 @@ export default function Admindashboard() {
         <Sidebar.Items>
           <Sidebar.ItemGroup>
             <Link to='/employee'>
-              <Sidebar.Item active icon={HiUser} label={'Admin'} labelColour='dark' as='div' className='bg-blue-500 hover:bg-blue-600 text-white rounded-md p-2 cursor-pointer'>
+
+           
+
+              <Sidebar.Item active icon={HiUser}  labelColour='dark' as='div' className='bg-blue-500 hover:bg-blue-600 text-white rounded-md p-2 cursor-pointer'>
                 Manage Employee
               </Sidebar.Item>
             </Link>
-            <Sidebar.Item active icon={FaQrcode} label={'Admin'} labelColour='dark' className='bg-green-500 hover:bg-green-600 text-white rounded-md p-2 cursor-pointer'>
-              Generate QR
+            <Link to='/leave'>
+            <Sidebar.Item active icon={FaQrcode}  labelColour='dark' className='bg-green-500 hover:bg-green-600 text-white rounded-md p-2 cursor-pointer'>
+              Attendence
             </Sidebar.Item>
-            <Sidebar.Item active icon={HiDocument} label={'Admin'} labelColour='dark' className='bg-yellow-500 hover:bg-yellow-600 text-white rounded-md p-2 cursor-pointer'>
-              Generate reports
+            </Link>
+            <Link to='/salaryreport'>
+            <Sidebar.Item active icon={HiDocument}  labelColour='dark' className='bg-yellow-500 hover:bg-yellow-600 text-white rounded-md p-2 cursor-pointer'>
+              Generate Salary reports
             </Sidebar.Item>
-            <Sidebar.Item active icon={HiUser} label={'Admin'} labelColour='dark' className='bg-red-500 hover:bg-red-600 text-white rounded-md p-2 cursor-pointer'>
-              Calculate salary
+            </Link>
+            <Link to='/addsalary'>
+
+            <Sidebar.Item active icon={HiUser}  labelColour='dark' className='bg-red-500 hover:bg-red-600 text-white rounded-md p-2 cursor-pointer'>
+              Add salary
             </Sidebar.Item>
+            </Link>  
+
+            <Link to='/arrival'>
+            <Sidebar.Item active icon={FaQrcode}  labelColour='dark' className='bg-blue-500 hover:bg-blue-600 text-white rounded-md p-2 cursor-pointer'>
+              Mark Attendence
+            </Sidebar.Item>
+            </Link>
+
           </Sidebar.ItemGroup>
         </Sidebar.Items>
       </Sidebar>
