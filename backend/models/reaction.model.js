@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
-
-const repairSchema = new mongoose.Schema({
-
+ 
+const requirmentsSchema = new mongoose.Schema({
 
     email: {
         type: String,
@@ -14,18 +13,14 @@ const repairSchema = new mongoose.Schema({
         unique: true,
     },
 
-    vehicle: {
-        type: String,
-        default : "https://media.istockphoto.com/id/1157763394/vector/motor-vehicles-automobile-bus-truck-flat-vector-pictogram-icon-set.jpg?s=612x612&w=0&k=20&c=qV_inSmXdftbufcMH3LUL0u1doNBKjqIJEBrApyu5MQ=",
-    },
     engine: {
         type: String,
-        default: "good"
+        default: "No check engine"
         
     },
     tyre: {
         type: String,
-        default: "good"
+        default: "No  add tyre"
     },
 
     parts: {
@@ -41,22 +36,31 @@ const repairSchema = new mongoose.Schema({
 
         
     },
-    requirment: {
-        type: Array,
-        default: "No requirment"
+    additional: {
+        type: String,
+        default: "No Additinal"
         
     },
-    date: {
+    rdate: {
         type: Date,
         required: true,
 
         default: Date.now
-    }
-    
+    },
+    time : {
+        type: Date,
+        required: true,
+
+        default: Date.now
+    },
+    update : {
+        type :Boolean,
+        default : false
+    },
 
 
-}, { timestamps: true });
+},{ timestamps: true });
 
-const Repair = mongoose.model('Repair', repairSchema);
-  
-export default Repair;
+const Requirments = mongoose.model('Requirments', requirmentsSchema);
+
+export default Requirments;

@@ -9,7 +9,9 @@ export default function Header() {
   const isAdmin = currentUser && currentUser.username === 'admin@gmail.com';//12345
   const isSupervisor = currentUser && currentUser.username === 'supervisor@gmail.com';
   const isStaff = currentUser && currentUser.email === 'staff@gmail.com';
+
   //const isGarageAdmin = currentUser && currentUser.email === 'serviceadmin@gmail.com';
+
 
   return (
     <header className='bg-slate-200 shadow-sm'>
