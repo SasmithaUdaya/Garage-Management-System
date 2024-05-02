@@ -5,6 +5,7 @@ import issueRoutes from './routes/issues.route.js';
 import authRoutes from './routes/auth.route.js';
 import customerRoutes from './routes/customer.route.js';
 import cookieParser from 'cookie-parser';
+import addinventoryRouter from './routes/addinventory.route.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -33,6 +34,9 @@ app.listen(3000, () => {
   app.use('/backend/customer', customerRoutes);
 
   app.use('/backend/issues', issueRoutes);
+
+  //Yeshani
+  app.use("/backend/addinventory", addinventoryRouter);
 
 
   app.use( (err ,req,res ,next)=>{
