@@ -45,6 +45,7 @@ import Search from './components/Search';
 import History from './pages/History';
 import CustomerReport from './pages/CustomerReport';
 import HaryUP from './pages/HaryUP';
+import AddNewItemToInventory from './pages/AddNewItemToInventory';
 
 
 export default function App() {
@@ -142,6 +143,8 @@ export default function App() {
 
 
        <Route path="/haryup" element={<HaryUP />} />
+
+       <Route path="/addinventory" element={<AddNewItemToInventory/>} />
 
        
 
