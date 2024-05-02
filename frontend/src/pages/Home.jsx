@@ -52,23 +52,6 @@ export default function Home() {
     
   
 <div className='p-4'>
-<div className="flex items-center">
-  <h1 className="text-3xl my-8 text-blue-900">Home Page </h1>
-</div>
-<div flex justify-center items-center gap-x-3 px-2 py-3 w-full>
-  
-<Link to="/faqs">
-  <button className="bg-gray-300 border-2 border-blue-600 text-black px-4 py-1 rounded-lg w-72 h-15 font-bold text-lg shadow-md">
-    FAQs
-  </button>
-</Link>
-<Link to="/feedback/create">
-  <button className="bg-gray-300 border-2 border-blue-600 text-black px-4 py-1 rounded-lg w-72 h-15 font-bold text-lg shadow-md">
-    Feedbacks
-  </button>
-</Link>
-</div>
-
        {/* top */}
        <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
         <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl'>
@@ -94,21 +77,19 @@ export default function Home() {
 
        {/* swiper */}
        <Swiper navigation>
-        {serviceListings &&
-          serviceListings.length > 0 &&
-          serviceListings.map((listing) => (
-            <SwiperSlide>
-              <div
-                style={{
-                  background: `url(${listing.imageUrls[0]}) center no-repeat`,
-                  backgroundSize: 'cover',
-                }}
-                className='h-[500px]'
-                key={listing._id}
-              ></div>
-            </SwiperSlide>
-          ))}
-      </Swiper>
+  {serviceListings.map((listing) => (
+    <SwiperSlide key={listing._id}>
+      <div
+        style={{
+          background: `url(${listing.imageUrls[0]}) center no-repeat`,
+          backgroundSize: 'cover',
+        }}
+        className='h-[500px]'
+      ></div>
+    </SwiperSlide>
+  ))}
+</Swiper>
+
 
        {/* listing results for offer, sale and rent */}
 

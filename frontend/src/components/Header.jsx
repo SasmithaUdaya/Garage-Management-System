@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 export default function Header() {
   const { currentUser } = useSelector(state => state.user);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const isAdmin = currentUser && currentUser.username === 'admin@gmail.com';//12345
   const isSupervisor = currentUser && currentUser.username === 'supervisor@gmail.com';
@@ -38,6 +39,23 @@ export default function Header() {
           <Link to='/about'>
             <li className='text-slate-700 hover:underline'>About</li>
           </Link>
+          {/* Dropdown for Support */}
+          <li className="relative" onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)}>
+            <button className="text-slate-700 hover:underline">Support</button>
+            {isDropdownOpen && (
+              <div className="absolute top-full left-0 bg-white shadow-md rounded p-2">
+                <Link to="/feedback/create" className="block text-slate-700 hover:bg-gray-200 p-2">
+                  Feedback
+                </Link>
+                <Link to="/faqs" className="block text-slate-700 hover:bg-gray-200 p-2">
+                  FAQ
+                </Link>
+                <Link to="/faqs" className="block text-slate-700 hover:bg-gray-200 p-2">
+                  Q & A
+                </Link>
+              </div>
+            )}
+          </li>
           {currentUser && !isStaff && (
             <Link to={isAdmin ? '/admin' : isSupervisor ? '/progresssupervisor' : '/customer '}>
               <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} alt="profile" />
