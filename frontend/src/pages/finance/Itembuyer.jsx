@@ -22,7 +22,7 @@ export default function Itembuyer() {
     }, []);
   
     const handleDelete = (id) => {
-      axios.delete(`http://localhost:3003/checkout/deleteCheckout/${id}`)
+      axios.delete(`http://localhost:5173/backend/checkout/deleteCheckout/${id}`)
         .then(res => {
           console.log(res);
           alert("Success");

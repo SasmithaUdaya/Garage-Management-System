@@ -13,7 +13,7 @@ export default function Payment() {
     e.preventDefault();
 
     axios.post("http://localhost:5173/backend/payment/payment", {paymentId,customer, amount, date})
-    navigate('/')
+    navigate('/invoice')
     .then(result => console.log(result))
     .catch(err => console.log(err))
   }

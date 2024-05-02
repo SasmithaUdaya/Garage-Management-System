@@ -21,3 +21,47 @@ export const getAllBuyer = async (req , res , next) => {
        next(error);
     }
  };
+
+ export const deleteCheckout = async(req , res ,next) => {
+
+    try{
+ 
+       const id = req.params.id ;
+ 
+        await Checkout.findByIdAndDelete(id);
+       res.status(200).json('Issue has been deleted');
+ 
+    }catch( error){
+       next(error);
+    }
+ };
+
+ export const oneBuyer = async (req , res , next) => {
+
+    try{
+ 
+       const id = req.params.id;
+       const userExist = await Checkout.findById(id);
+ 
+       res.status(200).json(userExist);
+ 
+    }catch(error){
+       next(error);
+    }
+ 
+ 
+ };
+
+ export const updateBuyer = async(req , res , next) => {
+
+   try{
+
+      const id = req.params.id ;
+
+      const updateData = await Checkout.findByIdAndUpdate(id, req.body, {new:true});
+      res.status(200).json(updateData);
+
+   }catch( error){
+      next(error);
+   }
+};
