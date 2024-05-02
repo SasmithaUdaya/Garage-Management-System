@@ -35,6 +35,7 @@ import ShowService from "./pages/services/showService";
 
 import ClientReport from './pages/services/ClientReport';
 import ClientSearch from './pages/services/ClientSearch';
+import ShowCart from "./pages/services/showCart";
 
 
 
@@ -171,7 +172,7 @@ export default function App() {
         <Route path="/listing/:listingId" element={<Listing />} />
         <Route path="/show-service" element={<ShowService />} />
         <Route path="/search" element={<ClientSearch />} />
-
+        
         <Route element={<PrivateRoute />}>
           <Route path="/signup" element={<Signup />} />
           <Route path="/admin" element={<Admin />} />
@@ -184,6 +185,9 @@ export default function App() {
           <Route path="/user" element={<User />} />
           <Route path="/show-report" element={<ClientReport />} />
           <Route path="/create-service" element={<CreateListin />} />
+          <Route path="/show-cart/:listingId" element={<ShowCart />} />
+
+         
         </Route>
 
 
