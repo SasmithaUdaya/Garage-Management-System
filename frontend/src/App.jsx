@@ -45,6 +45,11 @@ import Search from './components/Search';
 import History from './pages/History';
 import CustomerReport from './pages/CustomerReport';
 import HaryUP from './pages/HaryUP';
+import AddSpareParts from './pages/finance/AddSpareParts';
+import Payment from './pages/finance/Payment';
+import Checkout from './pages/finance/Checkout';
+import Itembuyer from './pages/finance/Itembuyer';
+import Invoice from './pages/finance/Invoice';
 
 
 export default function App() {
@@ -144,13 +149,12 @@ export default function App() {
        <Route path="/haryup" element={<HaryUP />} />
 
        
-
-
-
-
-
-
-       
+{/* Sanjula */}
+<Route path="/addspareparts" element={<AddSpareParts />} />
+<Route path="/payment" element={<Payment />} />
+<Route path="/checkout" element={<Checkout />} />
+<Route path="/buyer" element={<Itembuyer />} />
+<Route path="/invoice" element={<Invoice />} />
 
      </Routes>
      </BrowserRouter>
