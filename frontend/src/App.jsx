@@ -53,6 +53,9 @@ import DashboardInventory from './pages/DashboardInventory';
 import Addorder from './pages/Addorder';
 import Pendingorders from './pages/Pendingorders';
 import Getorders from './pages/Getorders';
+import Acceptedorders from './pages/Acceptedorders';
+import Suplierorder from './pages/Suplierorder';
+import Toacceptorder from './pages/Toacceptorder';
 
 
 
@@ -161,7 +164,9 @@ export default function App() {
        <Route path="/addnewitemorder" element={<Addorder/>} />
        <Route path="/pendingorders" element={<Pendingorders/>} />
        <Route path='/orderdetails/:orderid' element={<Getorders/>}/>
-       
+       <Route path ='/acceptedorders' element={<Acceptedorders/>}/>
+       <Route path='/suplierorder' element={<Suplierorder/>}/>
+       <Route path='/toacceptorders/:orderid' element={<Toacceptorder/>}/>
 
        
 
