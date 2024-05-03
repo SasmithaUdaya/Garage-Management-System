@@ -48,7 +48,7 @@ export default function Checkout() {
         Finalize purchase and payment
       </h1>
 
-      <div className="min-h-screen p-10 flex items-center justify-center bg-gray-0">
+      <div className="min-h-screen p-10 items-center justify-center bg-gray-0">
         <div className="max-w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row gap-5 items-start justify-center">
             <form
