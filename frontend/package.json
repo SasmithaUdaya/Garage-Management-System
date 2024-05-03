@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.3.6",
     "@reduxjs/toolkit": "^2.2.2",
     "axios": "^1.6.8",
     "firebase": "^10.10.0",
     "flowbite-react": "^0.8.0",
+    "framer-motion": "^11.1.7",
     "html2canvas": "^1.4.1",
     "html5-qrcode": "^2.3.8",
     "jspdf": "^2.5.1",

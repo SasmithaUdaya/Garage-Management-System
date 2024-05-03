@@ -29,13 +29,13 @@ import Customerreaction from './pages/Customerreaction';
 import AddDailystatus from './pages/AddDailystatus';
 import AllDailyStatus from './pages/AllDailyStatus';
 import Dailyupdate from './pages/Dailyupdate';
-import Report from './pages/Report';
 import Customerdaliupdate from './pages/Customerdaliupdate';
 import Updaterequirment from './pages/Updaterequirment';
 import Search from './components/Search';
 import History from './pages/History';
 import CustomerReport from './pages/CustomerReport';
 import HaryUP from './pages/HaryUP';
+import VReport from './pages/VReport';
 
 export default function App() {
   return (
@@ -122,7 +122,7 @@ export default function App() {
 
 
 
-       <Route path="/report" element={<Report />} />
+       <Route path="/vreport" element={<VReport />} />
 
        <Route path="/customerdailyupdate" element={<Customerdaliupdate />} />
 

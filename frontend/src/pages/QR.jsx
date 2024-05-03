@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import QRCode from 'qrcode.react';
+import { Button } from '@nextui-org/react';
 
 export default function QR() {
     const [value, setValue] = useState('');
@@ -63,8 +64,12 @@ export default function QR() {
                         <br />
                         <button onClick={handleDownload}>Download QR Code</button>
                     </>
+
+                    
                 )}
             </center>
+
+            <Button  color="primary">Submit</Button>
         </div>
     );
 }

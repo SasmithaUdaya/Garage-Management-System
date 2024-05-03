@@ -3,6 +3,18 @@ import Repairdashboard from '../components/Repairdashboard';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
+
+import b1 from '../Image/mb6.jpg';
+
+
+const styles = {
+    backgroundImage: `url(${b1})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '100%',
+  };
+
 export default function Dailyupdate() {
   const navigate = useNavigate();
   
@@ -61,7 +73,7 @@ export default function Dailyupdate() {
         text,
       });
       alert('Email sent successfully');
-      navigate('/report');
+      navigate('/vreport');
     } catch (err) {
       console.error(err);
       alert('Error sending email');
@@ -77,11 +89,11 @@ export default function Dailyupdate() {
   };
 
   return (
-    <div style={{ display: 'flex', padding: '0px' }}>
+    <div style={{ display: 'flex', padding: '0px',  }} className=' bg-slate-800'>
       <div style={{ width: '250px', background: 'black', padding: '0px' }}>
         <Repairdashboard />
       </div>
-      <div className='mx-auto p-7'>
+      <div className='mx-auto p-7' >
         <h1 className='text-3xl text-center font-bold my-5 text-yellow-500'>Update Daily Status</h1>
 
 

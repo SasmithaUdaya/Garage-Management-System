@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Repairdashboard from '../components/Repairdashboard';
-import car1 from '../Image/car1.jpg';
+import car1 from '../Image/b9.jpg';
 import { useNavigate } from 'react-router-dom';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { app } from '../firebase';
+import { Button } from '@nextui-org/react';
 
 const styles = {
   backgroundImage: `url(${car1})`,
@@ -111,7 +112,7 @@ export default function Repaiissue() {
 
   return (
     <div className='flex bd-im' style={styles}>
-      <div style={{ width: '250px', height: '615px', background: 'black', padding: '0px' }}>
+      <div  style={{ width: '250px', height: '615px',background: 'black', padding: '0px' }}>
         <Repairdashboard />
       </div>
       <div className='mx-auto'>
@@ -122,11 +123,12 @@ export default function Repaiissue() {
               onChange={(e) => setFile(e.target.files[0])}
               type='file'
               placeholder='Vehicle Photo'
-              className='border p-3 rounded-lg w-72 bg-slate-900 text-white'
+              className='border p-3 bg-slate-900 rounded-lg w-72 text-white'
               id='vehicle'
               accept='image/*'
+              
             />
-            <button type='button' className='border p-3 rounded-lg w-24 bg-slate-900 text-green-800 uppercase font-semibold' onClick={handleImage}>
+            <button type='button' className='border p-3 rounded-lg w-24 bg-slate-900 text-red-800 uppercase font-semibold' onClick={handleImage}>
               Upload 
             </button>
             <p className="text-sm self-center">
@@ -195,12 +197,12 @@ export default function Repaiissue() {
             id='date'
             onChange={(e) => setFormData({ ...formData, date: e.target.value })}
           />
-          <button
+          <Button type='submit'
             disabled={loading}
-            className='bg-gradient-to-r from-purple-600 to-blue-600 text-white border-black rounded-lg p-3 uppercase text-xl font-bold hover:opacity-90 disabled:opacity-80'
+            className='bg-gradient-to-r from-purple-600 to-blue-600 text-white border-black rounded-lg p-6 uppercase text-xl font-bold hover:opacity-90 disabled:opacity-80 w-96'
           >
             {loading ? 'Loading...' : 'Submit'}
-          </button>
+          </Button>
         </form>
         
       </div>

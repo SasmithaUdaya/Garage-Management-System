@@ -2,6 +2,17 @@ import React, { useEffect, useState } from 'react';
 import Repairdashboard from '../components/Repairdashboard';
 import axios from 'axios';
 
+import b1 from '../Image/mb2.jpg';
+
+
+const styles = {
+    backgroundImage: `url(${b1})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '100%',
+  };
+
 export default function HaryUP() {
     const [formData, setFormData] = useState([]);
     const [filterData, setFilterData] = useState([]);
@@ -33,10 +44,10 @@ export default function HaryUP() {
         const emailCount = countEmailOccurrences();
         return Object.entries(emailCount).map(([email, count]) => (
             count >= 5 ? (
-                <tr key={email} style={{ color: count > 5 ? 'red' : 'inherit' }}>
-                    <td className="border border-gray-300 px-4 py-2">{email}</td>
-                    <td className="border border-gray-300 px-4 py-2" hidden>{count}</td>
-                    <td className="border border-gray-300 px-4 py-2">{getVehicleNumber(email)}</td>
+                <tr className=' font-semibold' key={email} style={{ color: count > 5 ? 'red' : 'inherit' }}>
+                    <td className="border-2 border-gray-300 px-4 py-2">{email}</td>
+                    <td className="border-2 border-gray-300 px-4 py-2" hidden>{count}</td>
+                    <td className="border-2 border-gray-300 px-4 py-2">{getVehicleNumber(email)}</td>
                 </tr>
             ) : null
         ));
@@ -48,18 +59,18 @@ export default function HaryUP() {
     };
 
     return (
-        <div className="flex">
+        <div className="flex" style={styles}>
             <div style={{ width: '250px', height: '487px', background: 'black', padding: '0px' }}>
                 <Repairdashboard />
             </div>
 
             <div className="w-3/4 p-10">
-                <table className="w-full border-collapse border">
+                <table className="w-full border-collapse border bg-slate-400 opacity-80">
                     <thead>
-                        <tr className="bg-gray-100">
-                            <th className="border border-gray-300 px-4 py-2">Email</th>
-                            <th className="border border-gray-300 px-4 py-2" hidden>Count</th>
-                            <th className="border border-gray-300 px-4 py-2">Vehicle Number</th>
+                        <tr className="bg-blue-500">
+                            <th className="border-2 border-gray-300 px-4 py-2">Email</th>
+                            <th className="border-2 border-gray-300 px-4 py-2" hidden>Count</th>
+                            <th className="border-2 border-gray-300 px-4 py-2">Vehicle Number</th>
                         </tr>
                     </thead>
                     <tbody>
