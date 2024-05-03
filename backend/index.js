@@ -6,7 +6,7 @@ import authRoutes from './routes/auth.route.js';
 import customerRoutes from './routes/customer.route.js';
 import accidentRoutees from './routes/accident.route.js' ;
 import accidentrequestRoutes from './routes/accidentrequest.route.js';
-
+import attendancetrackRoutees from './routes/attendancetrack.route.js';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -39,7 +39,7 @@ app.listen(3000, () => {
   app.use('/backend/accident', accidentRoutees);
 
   app.use('/backend/accidentrequest',accidentrequestRoutes);
-  //app.use('/backend/attendancetrack',attendancetrackRoutees);
+  app.use('/backend/attendancetrack',attendancetrackRoutees);
 
 
   app.use( (err ,req,res ,next)=>{

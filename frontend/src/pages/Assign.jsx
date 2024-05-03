@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Assign() {
@@ -20,6 +20,7 @@ export default function Assign() {
     try {
       const res = await axios.post(`http://localhost:5173/backend/accident/create`, formData);
       console.log(res.data);
+      alert('Successfully assigned the mechanic !'); // Alert message
       navigate('/viewacc');
     } catch (error) {
       console.error('Error Accident Assigning issue:', error);

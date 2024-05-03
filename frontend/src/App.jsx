@@ -11,7 +11,7 @@ import Signup from './pages/Signup';
 import Customersignup from './pages/Customersignup';
 import PrivateRoute from './components/PrivateRoute';
 import Staffsignin from './pages/Staffsignin';
-import User from './components/User';
+
 import Mechanic from './pages/Mechanic';
 import Assign from './pages/Assign';
 
@@ -20,6 +20,7 @@ import CreateAccident from './pages/CreateAccident';
 import ViewAccident from './pages/ViewAccident';
 import AccidentReport from './pages/AccidentReport';
 import Request from './pages/Request';
+import FindMechanic from './pages/FindMechanic';
 
 export default function App() {
   return (
@@ -53,9 +54,8 @@ export default function App() {
            <Route path="/createacc" element={<CreateAccident />} />
  
            <Route path="/viewacc" element={<ViewAccident />} />
-   
-           
-     
+ 
+           <Route path="/find" element={<FindMechanic />} />
            <Route path="/accreport" element={<AccidentReport />} />
 
            <Route path="/request" element={<Request />} />

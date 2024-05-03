@@ -66,7 +66,7 @@ export default function Request() {
             </tbody>
           </table>
           <div className="flex justify-center mt-4">
-            <Link to='/assign'>
+            <Link to='/find'>
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Search Mechanic
               </button>
