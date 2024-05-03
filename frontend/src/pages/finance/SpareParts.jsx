@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import FinancialAdmin from "./FinancialAddmin";
 
 function ItemsPage() {
   const [items, setItems] = useState([]);
@@ -27,11 +28,11 @@ function ItemsPage() {
   const itemsString = JSON.stringify(selectedItems);
 
   return (
-    <div
-      className="bg-cover bg-no-repeat bg-center w-full h-full"
-      style={{ backgroundImage: "url(/Lambogini.jpg)" }}
-    >
-      <h1 className="text-4xl p-4">
+    <div className="flex flex-col md:flex-row" style={{backgroundImage: "url(/Lambogini.jpg)", backgroundSize: 'full'}}>
+    <div className="w-full md:w-1/4"><FinancialAdmin/></div>
+    <div className="w-full md:w-3/4">
+      <div className="text-center">
+        <h1 className="text-4xl p-4">
         <span className="text-yellow-600 font-semibold">Spare</span>
         <span className="text-white font-semibold">Parts</span>
       </h1>
@@ -86,19 +87,12 @@ function ItemsPage() {
               
             </Link>
 
-            {/* <Link
-              to={{
-                pathname: "/cart",
-                state: { selectedItems: selectedItems },
-              }}
-            >
-              <button className="px-4 py-2 bg-yellow-500 text-black font-semibold rounded hover:bg-yellow-600">
-                Go to Cart
-              </button>
-            </Link> */}
+            
           </div>
         </div>
       </main>
+    </div>
+    </div>
     </div>
   );
 }

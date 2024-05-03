@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import jspdf from 'jspdf';
 import 'jspdf-autotable';
 import { FaSearch } from 'react-icons/fa'; 
+import FinancialAdmin from "./FinancialAddmin";
 
 
 export default function Invoice() {
@@ -70,9 +71,11 @@ export default function Invoice() {
     };
     
     return (
-      <div className="bg-cover bg-no-repeat bg-center w-full h-full" style={{backgroundImage: "url(/Lambogini.jpg)"}}>
-        <div className="text-center">
-          <h1 className="text-4xl p-4">
+      <div className="flex flex-col md:flex-row" style={{backgroundImage: "url(/Lambogini.jpg)", backgroundSize: 'full'}}>
+        <div className="w-full md:w-1/4"><FinancialAdmin/></div>
+        <div className="w-full md:w-3/4">
+          <div className="text-center">
+            <h1 className="text-4xl p-4">
             <span className="text-yellow-600 font-semibold">Payment</span>
             <span className="text-white font-semibold">Details</span>
           </h1>
@@ -87,7 +90,7 @@ export default function Invoice() {
         <div className='max-h-screen p-10 flex justify-center bg-gray-0'>
           <div className='min-w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto'>
             <div className='flex flex-col md:flex-row gap-5 items-start justify-center'>
-              <form className='sm:flex-row flex-col gap-5 bg-gray-500 p-8 mb-4 rounded-lg w-full md:w-1/2'>
+            <form className="flex flex-col gap-5 bg-gray-500 p-8 mb-4 rounded-lg w-full md:w-3/4">
                 <div className='flex flex-col gap-3'>
                   <table className="table">
                     <thead>
@@ -137,7 +140,8 @@ export default function Invoice() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+        </div>
     );
   };
   

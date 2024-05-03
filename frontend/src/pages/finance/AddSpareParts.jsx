@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import FinancialAdmin from "./FinancialAddmin";
 
 export default function AddSpareParts() {
   const [name, setName] = useState('');
@@ -35,7 +36,7 @@ export default function AddSpareParts() {
         }
       });
       console.log("Spare part added successfully");
-      navigate('/');
+      navigate('/spareparts');
     } catch (error) {
       console.error("Error adding spare part:", error.response.data.message);
       alert("Failed to add spare part. Please try again later.");
@@ -43,8 +44,11 @@ export default function AddSpareParts() {
   };
 
   return (
-    <div style={{backgroundImage: "url('/Lambogini.jpg')", backgroundSize: "cover", backgroundPosition: "center"}} className="w-full h-full">
-      <h1 className="text-4xl p-4">
+    <div className="flex flex-col md:flex-row" style={{backgroundImage: "url(/Lambogini.jpg)", backgroundSize: 'full'}}>
+    <div className="w-full md:w-1/4"><FinancialAdmin/></div>
+    <div className="w-full md:w-3/4">
+      <div className="text-center">
+        <h1 className="text-4xl p-4">
         <span className="text-yellow-600 font-semibold">Add </span>
         <span className="text-white font-semibold">Spare Parts</span>
       </h1>
@@ -92,5 +96,6 @@ export default function AddSpareParts() {
       </div>
     </div>
   </div>
+  </div></div>
 );
 }

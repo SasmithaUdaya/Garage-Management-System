@@ -7,7 +7,9 @@ export default function Cart() {
   const itemsString = searchParams.get("items");
   const items = JSON.parse(decodeURIComponent(itemsString));
 
-  console.log(items);
+  // Calculate total price
+  const total = items.reduce((acc, item) => acc + item.price, 0);
+
   return (
     <div
       className="bg-cover bg-no-repeat bg-center w-full h-full"
@@ -30,6 +32,7 @@ export default function Cart() {
                   <thead>
                     <tr>
                       <th className="text-yellow-600 text-xl">Product</th>
+                      <th className="text-yellow-600 text-xl">Description</th>
                       <th className="text-yellow-600 text-xl">Price</th>
                     </tr>
                   </thead>
@@ -37,11 +40,16 @@ export default function Cart() {
                     {items.map((item, index) => (
                       <tr key={index}>
                         <td>{item.name}</td>
+                        <td>{item.description}</td>
                         <td>{item.price}</td>
                       </tr>
                     ))}
+
                   </tbody>
                 </table>
+                    <div className="text-black p-5 text-2xl text-center font-semibold text">
+                      Total Price: Rs.{total.toFixed(2)}
+                    </div>
               </div>
               <div className="flex gap-4 my-2 justify-center">
                 <a

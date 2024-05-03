@@ -14,11 +14,11 @@ export default function FinancialAdmin() {
                 Spare Parts
               </Sidebar.Item>
             </Link>
-            <Link to='/cart'>
+            {/* <Link to='/cart'>
             <Sidebar.Item active icon={FaQrcode} label={'Admin'} labelColour='dark' className='bg-green-500 hover:bg-green-600 text-white rounded-md p-2 cursor-pointer'>
               Cart
             </Sidebar.Item>
-            </Link>
+            </Link> */}
             <Link to='/checkout'>
             <Sidebar.Item active icon={HiDocument} label={'Admin'} labelColour='dark' className='bg-yellow-500 hover:bg-yellow-600 text-white rounded-md p-2 cursor-pointer'>
               Checkout
