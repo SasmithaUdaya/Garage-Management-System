@@ -52,6 +52,7 @@ import Updateitemdataininventory from './pages/Updateitemdataininventory';
 import DashboardInventory from './pages/DashboardInventory';
 import Addorder from './pages/Addorder';
 import Pendingorders from './pages/Pendingorders';
+import Getorders from './pages/Getorders';
 
 
 
@@ -159,6 +160,7 @@ export default function App() {
 
        <Route path="/addnewitemorder" element={<Addorder/>} />
        <Route path="/pendingorders" element={<Pendingorders/>} />
+       <Route path='/orderdetails/:orderid' element={<Getorders/>}/>
        
 
        
