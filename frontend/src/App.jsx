@@ -68,6 +68,7 @@ import AddSalary from './pages/AddSalary';
 import Salary from './pages/Salary';
 import Salaryreport from './pages/Salaryreport';
 import Admindashboard from "./components/Admindashboard";
+import { QandA } from "./pages/SupportPages/QandA";
 
 
 
@@ -272,6 +273,7 @@ export default function App() {
         {/* <Route path="/Home" element={<RealHome />} /> */}
         <Route path="/feedback/create" element={<CreateFeedback />} />
         <Route path="/faqs" element={<FAQs />} />
+        <Route path="/qanda" element={<QandA />} />
 
 
         <Route path="/faq/create" element={<CreateFAQ />} />

@@ -50,7 +50,7 @@ export default function Header() {
                 <Link to="/faqs" className="block text-slate-700 hover:bg-gray-200 p-2">
                   FAQ
                 </Link>
-                <Link to="/faqs" className="block text-slate-700 hover:bg-gray-200 p-2">
+                <Link to="/qanda" className="block text-slate-700 hover:bg-gray-200 p-2">
                   Q & A
                 </Link>
               </div>

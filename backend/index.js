@@ -67,6 +67,7 @@ app.listen(3000, () => {
   // Ishini's Routes
   app.use('/feedback', feedbackRoute)
   app.use('/faq', faqRoute)
+  app.use('/qanda', faqRoute)
 
 
   app.use( (err ,req,res ,next)=>{
