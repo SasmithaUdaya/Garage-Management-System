@@ -47,6 +47,7 @@ import CustomerReport from './pages/CustomerReport';
 import HaryUP from './pages/HaryUP';
 import AddNewItemToInventory from './pages/AddNewItemToInventory';
 import Itemlist from './pages/Itemlist';
+import ItemDetails from './pages/ItemDetails';
 
 
 
@@ -148,6 +149,7 @@ export default function App() {
 
        <Route path="/addinventory" element={<AddNewItemToInventory/>} />
        <Route path="/item" element = {<Itemlist/>} />
+       <Route path ='/details/:itemid' element={<ItemDetails/>}/>
        
 
        

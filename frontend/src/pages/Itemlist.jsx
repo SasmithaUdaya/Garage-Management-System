@@ -119,7 +119,7 @@ export default function Itemlist() {
         <p>Item List</p>
       </div>
       <Link
-        to="/add"
+        to="/addinventory"
         className="bg-green-500 text-black py-2 px-4 rounded-md ml-5 mr-10"
       >
         + Add new Item
@@ -249,7 +249,7 @@ export default function Itemlist() {
                   style={{ padding: '8px', border: '1px solid #ccc' }}
                   className="text-black"
                 >
-                  
+                  {item.quantity}
                 </td>
                 <td
                   style={{ padding: '8px', border: '1px solid #ccc' }}
