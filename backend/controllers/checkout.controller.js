@@ -49,7 +49,7 @@ export const getAllBuyer = async (req , res , next) => {
        next(error);
     }
  
- 
+
  };
 
  export const updateBuyer = async(req , res , next) => {

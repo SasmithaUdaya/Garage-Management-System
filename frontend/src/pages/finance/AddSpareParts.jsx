@@ -6,7 +6,7 @@ export default function AddSpareParts() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
-  const [image, setImage] = useState(null); // State to store the selected image file
+  const [image, setImage] = useState(null); 
   const navigate = useNavigate();
 
   const handleImageChange = (e) => {
@@ -17,34 +17,33 @@ export default function AddSpareParts() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3000/backend/addparts/addparts", { name, description, price, image })
-    navigate('/')
-      .then(result => console.log(result))
-      .catch(err => console.log(err));
+    if (!name || !description || !price || !image) {
+      alert("Please fill out all fields and select an image.");
+      return;
+    }
 
-    // const formData = new FormData();
-    // formData.append('name', name);
-    // formData.append('description', description);
-    // formData.append('price', price);
-    // formData.append('image', image);
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('price', price);
+    formData.append('image', image);
 
-    // try {
-    //   const response = await axios.post("/api/spareparts", formData, {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data'
-    //     }
-    //   });
-    //   console.log(response.data);
-    //   // You can add further handling such as showing success message or redirecting to another page.
-    //   navigate('/'); // Example redirection to home page
-    // } catch (error) {
-    //   console.error('Error adding spare part:', error);
-    //   // Handle error, show error message, etc.
-    // }
+    try {
+      await axios.post("http://localhost:5173/backend/addparts/addparts", formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      console.log("Spare part added successfully");
+      navigate('/');
+    } catch (error) {
+      console.error("Error adding spare part:", error.response.data.message);
+      alert("Failed to add spare part. Please try again later.");
+    }
   };
 
   return (
-    <div className="bg-cover bg-no-repeat bg-center w-full h-full" style={{backgroundImage: "url(/Lambogini.jpg)"}}>
+    <div style={{backgroundImage: "url('/Lambogini.jpg')", backgroundSize: "cover", backgroundPosition: "center"}} className="w-full h-full">
       <h1 className="text-4xl p-4">
         <span className="text-yellow-600 font-semibold">Add </span>
         <span className="text-white font-semibold">Spare Parts</span>
@@ -80,7 +79,7 @@ export default function AddSpareParts() {
               </div>
               <div className="flex gap-5 items-center">
                 <label htmlFor="image" className="text-lg">Image:</label>
-                <input required type="file" accept="image/*" onChange={handleImageChange} className="border p-3 rounded-lg bg-gray-400 placeholder-black text-lg" id="image" name="image" />
+                <input  type="file" accept="image/*" onChange={handleImageChange} className="border p-3 rounded-lg bg-gray-400 placeholder-black text-lg" id="image" name="image" />
               </div>
               <div className="flex justify-center">
                 <button type="submit" className="btn btn-success bg-yellow-600 text-black py-1 px-4 font-semibold rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 text-lg">

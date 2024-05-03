@@ -52,6 +52,10 @@ import Itembuyer from './pages/finance/Itembuyer';
 import Invoice from './pages/finance/Invoice';
 import BuyerEdit from './pages/finance/BuyerEdit';
 import PaymentEdit from './pages/finance/PaymentEdit';
+import SpareParts from './pages/finance/SpareParts';
+import Cart from './pages/finance/Cart';
+import FinancialAdmin from './pages/finance/FinancialAddmin';
+
 
 
 
@@ -160,7 +164,10 @@ export default function App() {
 <Route path="/invoice" element={<Invoice />} />
 <Route path="/buyerEdit/:id" element={<BuyerEdit />} />
 <Route path="/paymentEdit/:id" element={<PaymentEdit />} />
-
+<Route path="/paymentEdit/:id" element={<PaymentEdit />} />
+<Route path="/spareparts" element={<SpareParts />} />
+<Route path="/cart" element={<Cart />} />
+<Route path="/financialadmin" element={<FinancialAdmin />} />
      </Routes>
      </BrowserRouter>
   )

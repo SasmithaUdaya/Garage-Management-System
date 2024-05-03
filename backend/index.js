@@ -19,6 +19,7 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 dotenv.config();
 
+// const partRouter = require('./routes/addparts.route.js');
 
 mongoose.connect(process.env.MONGO).then(() => {
 

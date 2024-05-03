@@ -15,7 +15,7 @@ const addspareparts = new mongoose.Schema({
         required: true
       },
       image: {
-        type: String, // Assuming you're storing the image path as a string
+        type: String, 
         required: true
       }
 

@@ -49,7 +49,6 @@ export default function PaymentEdit() {
                     <div className='flex flex-col md:flex-row gap-5 items-start justify-center'>
                         <form onSubmit={handleSubmit} className='flex flex-col gap-5 bg-gray-500 p-8 mb-4 rounded-lg w-full md:w-1/2'>
                             <div className='flex flex-col gap-3'>
-                                <h1 className='text-2xl text-center font-semibold my-0 p-0 mb-0'>Payment Edit</h1>
                                 <div className='flex gap-3 items-center'>
                                     <label htmlFor='paymentId' className='form-control'>Payment ID:</label>
                                     <input type='text' placeholder='Enter Payment ID' className='border p-2 rounded-lg bg-gray-400 font-semibold' id='paymentId' name='paymentId' 
