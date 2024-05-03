@@ -16,6 +16,7 @@ import apRouter from './routes/ap.route.js';
 import cookieParser from 'cookie-parser';
 
 import addinventoryRouter from './routes/addinventory.route.js';
+import orderRouter from './routes/order.router.js';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -56,6 +57,7 @@ app.listen(3000, () => {
 
   //yeshani
   app.use("/backend/addinventory", addinventoryRouter);
+  app.use("/backend/order", orderRouter);
 
 
   app.use( (err ,req,res ,next)=>{
