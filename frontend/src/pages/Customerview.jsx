@@ -4,6 +4,17 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import b1 from '../Image/b3.jpg';
+
+
+const styles = {
+    backgroundImage: `url(${b1})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '100%',
+  };
+
 export default function CustomerView() {
   const { currentUser } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -59,7 +70,7 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div style={{ display: 'flex', padding: '0px' }}>
+    <div style={{...styles, display: 'flex', padding: '0px' }}>
       <div style={{ width: '250px', background: 'black', padding: '0px' }}><Customerdashboard /></div>
       <div className='mx-auto'>
         <h1 className='text-3xl text-center font-bold my-5 text-yellow-500'>Vehicle Status</h1>

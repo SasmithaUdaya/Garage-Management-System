@@ -49,19 +49,22 @@ export default function Customerreaction() {
 
   }
 
-  const deleteReaction = async (id) => {
-    try {
-      const res = await fetch(`/backend/reaction/deletereaction/${id}`, {
-        method: 'DELETE',
-      });
+  // const deleteReaction = async (id) => {
+  //   try {
+  //     const res = await fetch(`/backend/reaction/deletereaction/${id}`, {
+  //       method: 'DELETE',
 
-      setFormData(formData.filter((issue) => issue._id !== id));
-      alert('Successfully Deleted');
+        
+  //     });
+      
 
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  //     setFormData(formData.filter((issue) => issue._id !== id));
+  //     alert('Successfully Deleted');
+
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
 
   return (
     <div className='flex' style={styles}>
@@ -106,7 +109,7 @@ export default function Customerreaction() {
                   <td className='border-2 border-gray-300 px-4 py-2'>{repair.additional}</td>
                   <td className='border-2 border-gray-300 px-4 py-2'>{new Date(repair.rdate).toLocaleDateString()}</td>
                   <td className='border-2 border-gray-300 px-4 py-2'><Link to={`adddailyupdate/${repair._id}`}><div className='m-4 text-green-900' title='Sent Daily Status'><FaReply/></div></Link>
-                  <div className='m-4 text-red-800' title='Delet Reaction'><button onClick={() => deleteReaction(repair._id)}><FaTrash/></button></div></td>
+                  <div className='m-4 text-red-800' title='Delet Reaction'><Link to={`deletereaction/${repair._id}`}><button><FaTrash/></button></Link></div></td>
                 </tr>
               );
             })}

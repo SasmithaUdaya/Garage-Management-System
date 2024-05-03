@@ -36,6 +36,8 @@ import History from './pages/History';
 import CustomerReport from './pages/CustomerReport';
 import HaryUP from './pages/HaryUP';
 import VReport from './pages/VReport';
+import Deletereaction from './pages/Deletereaction';
+import Allreactionhistory from './pages/Allreactionhistory';
 
 export default function App() {
   return (
@@ -142,6 +144,9 @@ export default function App() {
 
 
        <Route path="/haryup" element={<HaryUP />} />
+       <Route path="/reaction/deletereaction/:id" element={<Deletereaction />} />
+      
+       <Route path="/rhisroty" element={<Allreactionhistory />} />
 
        
 

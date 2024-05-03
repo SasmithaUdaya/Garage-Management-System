@@ -4,6 +4,18 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import b1 from '../Image/b5.jpg';
+
+
+const styles = {
+    backgroundImage: `url(${b1})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '100%',
+  };
+
+
 
 export default function CustomerReport() {
     const { currentUser } = useSelector((state) => state.user);
@@ -49,7 +61,7 @@ export default function CustomerReport() {
   
   
     return (
-      <div style={{ display: 'flex', padding: '0px' }}>
+      <div style={{...styles, display: 'flex', padding: '0px' }}>
         <div style={{ width: '250px', background: 'black', padding: '0px' }}><Customerdashboard /></div>
         <div className='mx-auto'>
           <h1 className='text-3xl text-center font-bold my-5 text-yellow-500'>Vehicle Status</h1>
@@ -57,30 +69,33 @@ export default function CustomerReport() {
   
           <div  className="flex flex-col gap-4 w-full">
           <div> 
-      <input type='text' placeholder='Search...' className=' my-4 ' value={query} onChange={(e) => handleSearch(e)}/>
+      <input type='text' placeholder='Search...'  value={query} onChange={(e) => handleSearch(e)}
+            style={{ padding: '5px', border: '1px solid ' }}
+            className="border-2 my-4 border-gray-300 px-4 py-2 w-36 bg-transparent text-white font-semibold"
+       />
       </div>
   
               <table className='w-full border-collapse border'>
                   <thead>
-                  <tr className='bg-gray-100'>
-                          <th className='border border-gray-300 px-4 py-2'>Vehicle</th>
-                          <th className='border border-gray-300 px-4 py-2'>Status</th>
-                          <th className='border border-gray-300 px-4 py-2'>Date</th>    
+                  <tr className='bg-blue-500 border-2'>
+                          <th className='border-2 border-gray-300 px-4 py-2'>Vehicle</th>
+                          <th className='border-2 border-gray-300 px-4 py-2'>Status</th>
+                          <th className='border-2 border-gray-300 px-4 py-2'>Date</th>    
                    </tr>
                       
   
                   </thead>
 
                   
-                  <tbody>
+                  <tbody className='text-white'>
                   {formData.map((status) => {
              
 
              return (
                     <tr key={status._id}>
-                      <td  className='border border-gray-300 px-4 py-2'>{status.vehiclenumber}</td>
-                      <td  className='border border-gray-300 px-4 py-2'>{status.details}</td>
-                      <td  className='border border-gray-300 px-4 py-2'>{new Date(status.date).toLocaleDateString()}</td>
+                      <td  className='border-2 border-gray-300 px-4 py-2'>{status.vehiclenumber}</td>
+                      <td  className='border-2 border-gray-300 px-4 py-2'>{status.details}</td>
+                      <td  className='border-2 border-gray-300 px-4 py-2'>{new Date(status.date).toLocaleDateString()}</td>
                  </tr>
                   );
                 })}

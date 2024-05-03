@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaBook, FaEdit, FaEnvelope, FaEye, FaFolderOpen, FaHeart, FaRegFolderOpen } from 'react-icons/fa'
+import { FaBook, FaClock, FaEdit, FaEnvelope, FaEye, FaFolderOpen, FaHeart, FaRegFolderOpen } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 export default function Repairdashboard() {
@@ -36,6 +36,11 @@ export default function Repairdashboard() {
           <Link to="/vreport">
             <li className="py-2 border p-3 bg-slate-500 hover:bg-blue-600 text-white rounded-md cursor-pointer flex">
               <FaFolderOpen className="mr-2 my-1.5" />Report
+            </li>
+          </Link>
+          <Link to="/rhisroty">
+            <li className="py-2 border p-3 bg-slate-500 hover:bg-blue-600 text-white rounded-md cursor-pointer flex">
+              <FaClock className="mr-2 my-1.5" />History
             </li>
           </Link>
         </ul>

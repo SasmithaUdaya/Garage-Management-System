@@ -1,6 +1,17 @@
 import { useState } from 'react';
 import { Link , useNavigate} from 'react-router-dom'
 
+import b1 from '../Image/s5.jpg';
+
+
+const styles = {
+    backgroundImage: `url(${b1})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '500px',
+  };
+
 
 export default function Signup() {
 
@@ -50,18 +61,21 @@ export default function Signup() {
   };
   
   return (
-    <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl text-center font-semibold my-7'>Sign up</h1>
+   
+    <div style={styles} >
+       <div className='p-3 max-w-lg mx-auto'>
+      <h1 className='text-3xl text-center font-semibold my-7 text-yellow-700'>Sign up</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-        <input type="text" placeholder='empname'className='border p-3 rounded-lg' id='empname'onChange={handleChange}/>
-        <input type="phone" placeholder='phone_number'className='border p-3 rounded-lg' id='phone_number'onChange={handleChange}/>
-        <input type="email" placeholder='username'className='border p-3 rounded-lg' id='username'onChange={handleChange}/>
-        <input type="password" placeholder='password'className='border p-3 rounded-lg' id='password'onChange={handleChange}/>
-        <button disabled={loading} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>{loading ?'Loading...':'Sign up'}</button>
+        <input type="text" placeholder='empname'className='border p-3 rounded-lg bg-slate-300 text-black black-placeholder' id='empname'onChange={handleChange}/>
+        <input type="phone" placeholder='phone_number'className='border p-3 rounded-lg bg-slate-300' id='phone_number'onChange={handleChange}/>
+        <input type="email" placeholder='username'className='border p-3 rounded-lg bg-slate-300' id='username'onChange={handleChange}/>
+        <input type="password" placeholder='password'className='border p-3 rounded-lg bg-slate-300' id='password'onChange={handleChange}/>
+        <button disabled={loading} className='bg-blue-700 text-white p-3 font-bold rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>{loading ?'Loading...':'Sign up'}</button>
         
       </form>
       
       {error && <p className='text-red-500 mt-5'>{error}</p>}
+      </div>
     </div>
   )
 }

@@ -9,6 +9,7 @@ import reactionRoutes from './routes/reaction.route.js'
 import shistoryRoutes from './routes/statushistory.route.js'
 import emailRouter from './routes/email.route.js';
 import apRouter from './routes/ap.route.js';
+import historyRouter from './routes/reactionhistroy.route.js'
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -44,6 +45,7 @@ app.listen(3000, () => {
   app.use('/backend/statushistory',shistoryRoutes);
   app.use('/backend/email', emailRouter);
   app.use('/backend/ap', apRouter);
+  app.use('/backend/history', historyRouter);
 
   
 
