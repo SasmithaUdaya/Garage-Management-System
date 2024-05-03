@@ -12,6 +12,8 @@ import reactionRoutes from './routes/reaction.route.js'
 import shistoryRoutes from './routes/statushistory.route.js'
 import emailRouter from './routes/email.route.js';
 import apRouter from './routes/ap.route.js';
+import appointmentRouter from './routes/appointment.route.js'
+
 
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
@@ -50,7 +52,7 @@ app.listen(3000, () => {
   app.use('/backend/statushistory',shistoryRoutes);
   app.use('/backend/email', emailRouter);
   app.use('/backend/ap', apRouter);
-
+  app.use('/backend/appointment', appointmentRouter);
 
   app.use( (err ,req,res ,next)=>{
     const statusCode = err.statusCode || 500 ;

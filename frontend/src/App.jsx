@@ -45,6 +45,11 @@ import Search from './components/Search';
 import History from './pages/History';
 import CustomerReport from './pages/CustomerReport';
 import HaryUP from './pages/HaryUP';
+import CreateAppointment from './pages/appointment/CreateAppointment';
+import AppointmentHistory from './pages/appointment/AppointmentHistory';
+import UpdateAppointment from './pages/appointment/UpdateAppointment';
+import GarageManager from './pages/appointment/GarageManager';
+import UserProfile from './pages/appointment/UserProfile';
 
 
 export default function App() {
@@ -147,7 +152,12 @@ export default function App() {
 
 
 
-
+ {/* kanishka */}
+ <Route path="/createappointment" element={< CreateAppointment/>} />
+ <Route path="/appointmenthistory" element={< AppointmentHistory/>} />
+ <Route path="/appointmenthistory/updateappointment/:id" element={< UpdateAppointment/>} />
+ <Route path="/garageManager" element={< GarageManager/>} />
+ <Route path="/userProfile" element={< UserProfile/>} />
 
 
        
