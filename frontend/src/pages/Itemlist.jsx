@@ -125,7 +125,7 @@ export default function Itemlist() {
         + Add new Item
       </Link>
       <Link
-        to="/dashboard"
+        to="/dashboardinventory"
         className="bg-blue-500 text-black py-2 px-4 rounded-md"
       >
         Dashboard
