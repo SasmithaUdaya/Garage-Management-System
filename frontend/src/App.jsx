@@ -3,15 +3,11 @@ import CreateListin from './pages/services/CreateListing';
 import Listing from './pages/services/Listing';
 import UpdateListing from './pages/services/updateListing';
 import ShowService from "./pages/services/showService";
-
 import ClientReport from './pages/services/ClientReport';
 import ClientSearch from './pages/services/ClientSearch';
 import ShowCart from "./pages/services/showCart";
-
-
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Home from './pages/Home';
-
 import About from './pages/About';
 import Hearder from './components/Header';
 import Admin from './pages/Admin';
@@ -25,6 +21,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Staffsignin from './pages/Staffsignin';
 import User from './components/User';
 import Admindashboard from './components/Admindashboard';
+import AdminDashboardGarageManager from '../src/pages/services/AdminDashboardGarageManager'
 import Repairdashboard from './components/Repairdashboard';
 import Repaiissue from './pages/Repaiissue';
 import View from './pages/View';
@@ -66,16 +63,14 @@ export default function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/update-listing/:listingId" element={<UpdateListing />} />
           <Route path="/progresssupervisor" element={<Progresssupervisor />} />
-          <Route path="/adminGarage" element={<AdminDashboard />} />
+          <Route path="/adminGarage" element={<AdminDashboardGarageManager />} />
           <Route path="/employee" element={<Employee />} />
           <Route path="/customer" element={<Customer />} />
           <Route path="/staffsignin" element={<Staffsignin />} />
           <Route path="/user" element={<User />} />
           <Route path="/show-report" element={<ClientReport />} />
           <Route path="/create-service" element={<CreateListin />} />
-          <Route path="/show-cart/:listingId" element={<ShowCart />} />
-
-         
+          <Route path="/show-cart" element={<ShowCart />} />
         </Route>
 
 
@@ -140,11 +135,7 @@ export default function App() {
 
 
        <Route path="/qr" element={<QR />} />
-
        <Route path="/qrreder" element={<QRScanner />} />
-
-
-
        <Route path="/haryup" element={<HaryUP />} />
 
        
@@ -162,3 +153,4 @@ export default function App() {
 }
 
 //This is first comment
+
