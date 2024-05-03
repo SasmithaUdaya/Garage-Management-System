@@ -23,6 +23,7 @@ import LeaveAttendence from './components/LeaveAttendence';
 import AddSalary from './pages/AddSalary';
 import Salary from './pages/Salary';
 import Salaryreport from './pages/Salaryreport';
+import Employeehistory from './pages/Employeehistory';
 
 
 
@@ -97,18 +98,10 @@ export default function App() {
 
         <Route path="/salaryreport" element={<Salaryreport />} />
 
-        
-
-
+        <Route path="/employeehistory" element={<Employeehistory/>}/>
 
         
-
-
-       
-
-
-        
-     </Routes>
+      </Routes>
      </BrowserRouter>
   )
 }

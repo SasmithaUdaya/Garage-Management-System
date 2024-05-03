@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
+import img13 from '../components/Image/img13.jpg';
+
+
+const back = {
+  backgroundImage: `url(${img13})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  width: '100%',
+  height: '110vh',
+};
 
 export default function EditUser() {
   const { id } = useParams();
@@ -43,12 +53,12 @@ export default function EditUser() {
   };
 
   return (
-    <div>
+    <div style={back}>
       <Link to="/employee">
         <button className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80 w-20 h-15 mt-5 my-5'>Back</button>
       </Link>
       <div className='p-3 max-w-lg mx-auto'>
-        <h3 className='text-3xl text-center font-semibold my-7'>Update Employee</h3>
+        <h3 className='text-3xl text-center font-semibold text-amber-500 my-7'>Update Employee</h3>
         {updateSuccess && (
           <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
             <strong className="font-bold">Success!</strong>

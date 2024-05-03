@@ -59,18 +59,30 @@ export default function Signup() {
       setError('Password must be at least 6 characters long.');
       return;
     }
+
+    const phoneNumberRegex = /^\d{10}$/;
+    if (!phoneNumberRegex.test(formData.phone_number)) {
+    setError('Phone number must contain exactly 10 numbers.');
+    return;
+  }
     try {
       setLoading(true);
   
       const res1 = await axios.post('http://localhost:5173/backend/employee/EmployeeAdd', formData);
   
       const res2 = await axios.post('http://localhost:5173/backend/auth/signup', formData);
+
+      const res3 = await axios.post('http://localhost:5173/backend/employeehistory/employeehis', formData);
+
   
       const data1 = res1.data;
       const data2 = res2.data;
+      const data3 = res3.data;
+
   
       console.log('Response from first endpoint:', data1);
       console.log('Response from second endpoint:', data2);
+      console.log('Response from second endpoint:', data3);
   
       if (data1.success === false) {
         setLoading(false);

@@ -2,17 +2,26 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Button } from 'flowbite-react';
+import img4 from '../components/Image/img4.jpg'
+
+const back = {
+  backgroundImage: `url(${img4})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  width: '100%',
+  height: '110vh',
+};
 
 const styles = {
-  container: {
+ container: {
     display: 'flex',
     flexDirection: 'column', 
     alignItems: 'center',
-    height: '100vh', 
+    height: '100%', 
     overflow: 'auto', 
   },
   tableContainer: {
-    width: '80%', 
+    width: '100%%', 
     margin: '20px auto', 
     overflowX: 'auto', 
   },
@@ -116,9 +125,9 @@ const User = () => {
 
 export default function Employee() {
   return (
-    <div style={styles.container}>
+    <div style={styles.container} className='bg-blue-200' >
       <Link to="/signup">
-        <button className='bg-blue-500 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>+ Add Employee</button>
+        <button className='bg-red-500 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>+ Add Employee</button>
       </Link>
       <User />
     </div>

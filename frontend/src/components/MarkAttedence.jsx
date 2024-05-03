@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+
+
+
+
+
 export default function MarkAttedence() {
 
     const navigate = useNavigate();
@@ -47,8 +52,8 @@ const handleChange = (e) => {
   };
 
   return (
-    <div className="container mx-auto mt-10">
-            <form onSubmit={handleSubmit} className="mx-auto max-w-md bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div className="container mx-auto mt-10 ">=
+            <form onSubmit={handleSubmit} className="mx-96 my-38 max-w-md bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <input
                     onChange={handleChange}
                     type="email"

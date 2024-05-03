@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import img12 from '../components/Image/img12.jpg';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { FaEdit, FaTrash } from 'react-icons/fa';
@@ -7,6 +8,16 @@ import jsPdf from 'jspdf';
 import 'jspdf-autotable';
 import logo from '../components/Image/logo.png'
 import Admindashboard from '../components/Admindashboard';
+
+const tableWidth = 'w-2/4';
+
+const back = {
+    backgroundImage: `url(${img12})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '110vh',
+  };
 
 export default function Salaryreport() {
     const navigate = useNavigate();
@@ -105,33 +116,34 @@ export default function Salaryreport() {
     }
 
     return (
-        <div className='container mx-auto mt-10'>
-        <h1 className='text-3xl text-center font-semibold my-7'>Salary Report</h1>
-        <table className='w-full border-collapse border border-gray-300'>
+        <div style={back}>
+            <div className='container mx-auto mt-10 bg-transparent'>
+            <h1 className='text-3xl text-center text-amber-400 font-semibold my-7'>Salary Report</h1>
+            <table className={`table-auto ${tableWidth}  mx-auto 'border-3 border-black' `}>
             <thead>
                 <tr className='bg-gray-100'>
-                    <th className='border border-gray-300 px-4 py-2'>UserName</th>
-                    <th className='border border-gray-300 px-4 py-2'>Days</th>
-                    <th className='border border-gray-300 px-4 py-2'>Per day Salary</th>
-                    <th className='border border-gray-300 px-4 py-2'>Salary</th>
-                    <th className='border border-gray-300 px-4 py-2'>Action</th>
+                    <th className='border border-gray-600 px-4 py-2 bg-slate-600'>UserName</th>
+                    <th className='border border-gray-600 px-4 py-2  bg-slate-600'>Days</th>
+                    <th className='border border-gray-600 px-4 py-2  bg-slate-600'>Per day Salary</th>
+                    <th className='border border-gray-600 px-4 py-2  bg-slate-600'>Salary</th>
+                    <th className='border border-gray-600 px-4 py-2  bg-slate-600'>Action</th>
 
                 </tr>
             </thead>
             <tbody>
                 {formData.map((user) => (
                     <tr key={user._id}>
-                        <td className='border border-gray-300 px-4 py-2'>{user.username}</td>
-                        <td className='border border-gray-300 px-4 py-2'>{user.day}</td>
-                        <td className='border border-gray-300 px-4 py-2'>{user.perdaysalary}</td>
-                        <td className='border border-gray-300 px-4 py-2'>{user.day * user.perdaysalary}</td>
-                        <td className='border border-gray-300 px-4 py-2'><div className='m-4 text-red-500'><button onClick={() => deleteemp(user._id)}><FaTrash/></button></div></td>
+                        <td className='border border-gray-600 px-4 py-2  text-slate-200 font-semibold'>{user.username}</td>
+                        <td className='border border-gray-600 px-4 py-2  text-slate-200 font-semibold'>{user.day}</td>
+                        <td className='border border-gray-600 px-4 py-2  text-slate-200 font-semibold'>{user.perdaysalary}</td>
+                        <td className='border border-gray-600 px-4 py-2  text-slate-200 font-semibold'>{user.day * user.perdaysalary}</td>
+                        <td className='border border-gray-600 px-4 py-2  text-slate-200 font-semibold'><div className='m-4 text-red-500'><button onClick={() => deleteemp(user._id)}><FaTrash/></button></div></td>
                     </tr>
                 ))}
             </tbody>
-            <tr className='border border-gray-300 px-4 py-2'>
-                <td colSpan="3" className='text-right'>Total Pay:</td>
-                <td className='border border-gray-300 px-4 py-2'>{totalSalary}</td>
+            <tr className='border border-gray-600 px-4 py-2'>
+                <td colSpan="3" className='text-right font-semibold text-amber-500'>Total Pay:</td>
+                <td className='border border-gray-600 px-4 py-2  text-amber-500'>{totalSalary}</td>
             </tr>
         </table>
         <div className='mt-4 text-center'>
@@ -139,6 +151,7 @@ export default function Salaryreport() {
                 Download Report
             </button>
         </div>
-    </div>
+    </div></div>
+        
     );
 }
