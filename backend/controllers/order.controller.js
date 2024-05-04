@@ -1,5 +1,5 @@
 import order from '../models/order.model.js';
-//import SupplierOrder from '../models/SupplierOrder.js';
+import SupplierOrder from '../models/SupplierOrder.js';
 import { errorHandler } from '../utils/error.js'; 
 
 export const addorder = async (req, res, next) => {
