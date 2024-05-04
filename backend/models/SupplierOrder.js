@@ -25,6 +25,15 @@ const supplierOrderSchema = new mongoose.Schema({
     required: true,
   },
   
+  orderName: {
+    type: String,
+    required: true,
+  },
+
+  quantity: {
+    type: String,
+    required: true,
+  },
   
 });
 

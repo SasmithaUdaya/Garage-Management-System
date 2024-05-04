@@ -4,7 +4,7 @@ import Order from '../models/order.model.js';
 
 export const addSupplierOrder = async (req, res, next) => {
     try {
-        const { supplierName, phoneNumber, email, deliverdate, price } = req.body;
+        const { supplierName, phoneNumber, email, deliverdate, price, orderName, quantity } = req.body;
 
         const newSupplierOrder = new SupplierOrder({
             supplierName,
@@ -12,6 +12,8 @@ export const addSupplierOrder = async (req, res, next) => {
             email,
             deliverdate,
             price,
+            orderName,
+            quantity,
         });
 
         // Save the newSupplierOrder to the database

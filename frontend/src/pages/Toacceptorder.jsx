@@ -57,20 +57,16 @@ export default function Toacceptorder() {
                             <p className='font-semibold text-gray-800'>Deadline   &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; :&nbsp;&nbsp;  {orderdata.deadline}</p><br/><br/><br/>
 
                             <div className="flex justify-center mt-4">
-                                <Link
-                                    to={{
-                                        pathname: "/acceptform",
-                                        state: {
-                                            orderId: orderdata._id,
-                                            orderName: orderdata.ordername,
-                                            orderStatus: orderdata.status,
-                                        },
-                                    }}
-                                    className="bg-black hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
-                                >
-                                    Accept Order
-                                </Link>
-                            </div>
+                            <Link
+                             to={{
+                                pathname: "/acceptform",
+                                search: `?orderName=${orderdata.ordername}&quantity=${orderdata.quantity}`,
+                            }}
+                            className="bg-black hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
+                        >
+                            Accept Order
+                        </Link>
+                                                    </div>
 
                         </div>
                     </div>

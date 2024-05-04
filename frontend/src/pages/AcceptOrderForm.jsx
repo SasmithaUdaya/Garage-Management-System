@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export default function AcceptOrderForm() {
     const [formData, setFormData] = useState({
         supplierName: '',
         phoneNumber: '',
-        email:'' ,
-        deliverdate:'' ,
-        price: '' ,
+        email: '',
+        deliverdate: '',
+        price: '',
     });
-    
+
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const orderName = searchParams.get('orderName');
+    const quantity = searchParams.get('quantity');
 
     const handleChanges = (e) => {
         const { name, value } = e.target;
@@ -27,19 +33,27 @@ export default function AcceptOrderForm() {
         try {
             setLoading(true);
             setError(null);
-            const res = await fetch('backend/supplierorder/addordersupplier', {
+
+            // Add orderName and quantity to the form data
+            const postData = {
+                ...formData,
+                orderName: orderName,
+                quantity: quantity,
+            };
+
+            const res = await fetch('/backend/supplierorder/addordersupplier', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(postData), // Send postData to the backend
             });
             const data = await res.json();
             setLoading(false);
             if (data.success === false) {
                 setError(data.message);
             } else {
-                navigate(`/ordersystemsupplier`);
+                navigate(`/suplierorder`);
             }
         } catch (error) {
             setError(error.message);
@@ -52,6 +66,24 @@ export default function AcceptOrderForm() {
             <h1 className='text-3xl font-semibold text-center my-7'>Order Form</h1>
             <form className='flex flex-col sm:flex-row gap-4 bg-black bg-opacity-80 p-6 rounded-lg shadow-md' onSubmit={handleSubmit}>
                 <div className='flex flex-col gap-4 flex-1'>
+                    <input
+                        type='text'
+                        placeholder='Order Name'
+                        className='border p-3 rounded-lg'
+                        id='orderName'
+                        name='orderName'
+                        value={orderName}
+                        readOnly
+                    />
+                    <input
+                        type='text'
+                        placeholder='Quantity'
+                        className='border p-3 rounded-lg'
+                        id='quantity'
+                        name='quantity'
+                        value={quantity}
+                        readOnly
+                    />
                     <input
                         type='text'
                         placeholder='Supplier Name'
