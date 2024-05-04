@@ -10,6 +10,11 @@ export default function Header() {
   const isSupervisor = currentUser && currentUser.username === 'supervisor@gmail.com';
   const isStaff = currentUser && currentUser.email === 'staff@gmail.com';
 
+  const isfinance = currentUser && currentUser.email === 'financial@gmail.com';//12345
+
+  const isCCcoordinator = currentUser && currentUser.email === 'cccoordinator@gmail.com';//CEH123-PW
+
+
   //const isGarageAdmin = currentUser && currentUser.email === 'serviceadmin@gmail.com';
 
 
@@ -38,7 +43,7 @@ export default function Header() {
             <li className='text-slate-700 hover:underline'>About</li>
           </Link>
           {currentUser && !isStaff && (
-            <Link to={isAdmin ? '/admin' : isSupervisor ? '/progresssupervisor' : '/customer '}>
+            <Link to={isAdmin ? '/admin' : isSupervisor ? '/progresssupervisor' :isfinance ? '/finacedash' : '/customer '}>
               <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} alt="profile" />
             </Link>
           )}
