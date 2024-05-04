@@ -35,6 +35,11 @@ import markempRoutes from './routes/employee.route.js'
 
 
 import cookieParser from 'cookie-parser';
+
+import addinventoryRouter from './routes/addinventory.route.js';
+import orderRouter from './routes/order.router.js';
+import supplierOrderRoutes from './routes/supplierOrder.route.js';
+
 import dotenv from 'dotenv';
 import cors from 'cors'
 dotenv.config();
@@ -77,6 +82,12 @@ app.listen(3000, () => {
   app.use('/backend/email', emailRouter);
   app.use('/backend/ap', apRouter);
 
+
+  //yeshani
+  app.use("/backend/addinventory", addinventoryRouter);
+  app.use("/backend/order", orderRouter);
+  app.use("/backend/supplierorder", supplierOrderRoutes);
+
   app.use('/backend/appointment', appointmentRouter);
 
 
@@ -90,6 +101,7 @@ app.listen(3000, () => {
   // Ishini's Routes
   app.use('/feedback', feedbackRoute)
   app.use('/faq', faqRoute)
+
 
 
 

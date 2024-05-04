@@ -61,6 +61,20 @@ import Search from './components/Search';
 import History from './pages/History';
 import CustomerReport from './pages/CustomerReport';
 import HaryUP from './pages/HaryUP';
+import AddNewItemToInventory from './pages/AddNewItemToInventory';
+import Itemlist from './pages/Itemlist';
+import ItemDetails from './pages/ItemDetails';
+import Updateitemdataininventory from './pages/Updateitemdataininventory';
+import DashboardInventory from './pages/DashboardInventory';
+import Addorder from './pages/Addorder';
+import Pendingorders from './pages/Pendingorders';
+import Getorders from './pages/Getorders';
+import Acceptedorders from './pages/Acceptedorders';
+import Suplierorder from './pages/Suplierorder';
+import Toacceptorder from './pages/Toacceptorder';
+import AcceptOrderForm from './pages/AcceptOrderForm';
+import Ordersystem from './pages/Ordersystem';
+
 
 import CreateAppointment from './pages/appointment/CreateAppointment';
 import AppointmentHistory from './pages/appointment/AppointmentHistory';
@@ -269,6 +283,21 @@ export default function App() {
        <Route path="/qr" element={<QR />} />
        <Route path="/qrreder" element={<QRScanner />} />
        <Route path="/haryup" element={<HaryUP />} />
+
+       <Route path="/addinventory" element={<AddNewItemToInventory/>} />
+       <Route path="/item" element = {<Itemlist/>} />
+       <Route path ='/details/:itemid' element={<ItemDetails/>}/>
+       <Route path='/update/:itemid' element ={<Updateitemdataininventory/>} />
+       <Route path ="/dashboardinventory" element ={<DashboardInventory/>}/>
+
+       <Route path="/addnewitemorder" element={<Addorder/>} />
+       <Route path="/pendingorders" element={<Pendingorders/>} />
+       <Route path='/orderdetails/:orderid' element={<Getorders/>}/>
+       <Route path ='/acceptedorders' element={<Acceptedorders/>}/>
+       <Route path='/suplierorder' element={<Suplierorder/>}/>
+       <Route path='/toacceptorders/:orderid' element={<Toacceptorder/>}/>
+       <Route path='/acceptform' element ={<AcceptOrderForm/>}/>
+       <Route path ="/ordersystem" element={<Ordersystem/>}/>
 
        
 
