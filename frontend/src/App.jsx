@@ -6,7 +6,6 @@ import { Toaster } from "react-hot-toast";
 import About from "./pages/About";
 import Hearder from "./components/Header";
 import Admin from "./pages/Admin";
-import Employee from "./pages/Employee";
 import Progresssupervisor from "./pages/Progresssupervisor";
 import Customer from "./pages/Customer";
 import Signin from "./pages/Signin";
@@ -177,15 +176,15 @@ export default function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/update-listing/:listingId" element={<UpdateListing />} />
           <Route path="/progresssupervisor" element={<Progresssupervisor />} />
-<<<<<<< Updated upstream
+
 
           <Route path="/adminGarage" element={<AdminDashboardGarageManager />} />
 
           <Route path="/adminGarage" element={<Admindashboard />} />
 
-=======
+
           <Route path="/adminGarage" element={<AdminHome />} />
->>>>>>> Stashed changes
+
           <Route path="/employee" element={<Employee />} />
           <Route path="/customer" element={<Customer />} />
           <Route path="/staffsignin" element={<Staffsignin />} />
