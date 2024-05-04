@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { Link , useNavigate} from 'react-router-dom'
 
@@ -15,39 +16,83 @@ export default function Signup() {
         [e.target.id]: e.target.value,
     });
   };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try{
+  //     // await axios.post(`http://localhost:3000/backend/employee/EmployeeAdd`)
+
+  //     setLoading(true);
+  //     const res = await fetch('/backend/auth/signup',
+  //     {
+  //       method:'POST',
+  //       headers: {
+  //         'Content-Type':'application/json',
+  //       },
+  //       body: JSON.stringify(formData),
+  //     });
+  //     const data = await res.json();
+  //     console.log(data);
+  //     if(data.success == false){
+  //       setLoading(false);
+  //       setError(data.message);
+  //       return;
+
+  //     }
+  //     setLoading(false);
+  //     setError(null);
+  //     navigate('/employee');
+
+  //   }catch(error){
+  //     setLoading(false);
+  //     setError(error.message);
+
+
+  //   }
+    
+    
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-      setLoading(true);
-      const res = await fetch('/backend/auth/signup',
-      {
-        method:'POST',
-        headers: {
-          'Content-Type':'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      const data = await res.json();
-      console.log(data);
-      if(data.success == false){
-        setLoading(false);
-        setError(data.message);
-        return;
 
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters long.');
+      return;
+    }
+    try {
+      setLoading(true);
+  
+      const res1 = await axios.post('http://localhost:5173/backend/employee/EmployeeAdd', formData);
+  
+      const res2 = await axios.post('http://localhost:5173/backend/auth/signup', formData);
+  
+      const data1 = res1.data;
+      const data2 = res2.data;
+  
+      console.log('Response from first endpoint:', data1);
+      console.log('Response from second endpoint:', data2);
+  
+      if (data1.success === false) {
+        setLoading(false);
+        setError(data1.message);
+        return;
       }
+  
+      if (data2.success === false) {
+        setLoading(false);
+        setError(data2.message);
+        return;
+      }
+  
       setLoading(false);
       setError(null);
       navigate('/employee');
-
-    }catch(error){
+    } catch (error) {
       setLoading(false);
       setError(error.message);
-
-
     }
-    
-    
   };
+  
   
   return (
     <div className='p-3 max-w-lg mx-auto'>
