@@ -9,7 +9,7 @@ import { FaDownload } from 'react-icons/fa';
 
 
 
-export default function Report() {
+export default function VReport() {
     const [formData, setFormData] = useState([]);
     const [filterData, setFilterData] = useState([]);
     const [query, setQuery] = useState('');

@@ -3,16 +3,7 @@ import Home from "./pages/Home";
 import { Toaster } from "react-hot-toast";
 
 
-import About from "./pages/About";
-import Hearder from "./components/Header";
-import Admin from "./pages/Admin";
-import Progresssupervisor from "./pages/Progresssupervisor";
-import Customer from "./pages/Customer";
-import Signin from "./pages/Signin";
-import Signup from "./pages/Signup";
-import Customersignup from "./pages/Customersignup";
-import PrivateRoute from "./components/PrivateRoute";
-import Staffsignin from "./pages/Staffsignin";
+
 // import User from "./components/User";
 
 
@@ -64,7 +55,6 @@ import Customerreaction from './pages/Customerreaction';
 import AddDailystatus from './pages/AddDailystatus';
 import AllDailyStatus from './pages/AllDailyStatus';
 import Dailyupdate from './pages/Dailyupdate';
-import Report from './pages/Report';
 import Customerdaliupdate from './pages/Customerdaliupdate';
 import Updaterequirment from './pages/Updaterequirment';
 import Search from './components/Search';
@@ -81,7 +71,8 @@ import AddSalary from './pages/AddSalary';
 import Salary from './pages/Salary';
 import Salaryreport from './pages/Salaryreport';
 import Employee from './pages/Employee';
-import AdminHome from './pages/services/AdminHome';
+// import AdminHome from './pages/services/AdminHome';
+import VReport from "./pages/VReport";
 
 
 
@@ -183,7 +174,7 @@ export default function App() {
           <Route path="/adminGarage" element={<Admindashboard />} />
 
 
-          <Route path="/adminGarage" element={<AdminHome />} />
+          {/* <Route path="/adminGarage" element={<AdminHome />} /> */}
 
           <Route path="/employee" element={<Employee />} />
           <Route path="/customer" element={<Customer />} />
@@ -243,7 +234,7 @@ export default function App() {
 
 
 
-       <Route path="/report" element={<Report />} />
+       <Route path="/vreport" element={<VReport />} />
 
        <Route path="/customerdailyupdate" element={<Customerdaliupdate />} />
 
