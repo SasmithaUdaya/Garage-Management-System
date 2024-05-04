@@ -82,7 +82,7 @@ import AddSalary from './pages/AddSalary';
 import Salary from './pages/Salary';
 import Salaryreport from './pages/Salaryreport';
 import Employee from './pages/Employee';
-
+import AdminHome from './pages/services/AdminHome';
 
 
 
@@ -177,11 +177,15 @@ export default function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/update-listing/:listingId" element={<UpdateListing />} />
           <Route path="/progresssupervisor" element={<Progresssupervisor />} />
+<<<<<<< Updated upstream
 
           <Route path="/adminGarage" element={<AdminDashboardGarageManager />} />
 
           <Route path="/adminGarage" element={<Admindashboard />} />
 
+=======
+          <Route path="/adminGarage" element={<AdminHome />} />
+>>>>>>> Stashed changes
           <Route path="/employee" element={<Employee />} />
           <Route path="/customer" element={<Customer />} />
           <Route path="/staffsignin" element={<Staffsignin />} />
