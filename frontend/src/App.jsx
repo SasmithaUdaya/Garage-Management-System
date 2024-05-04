@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 
 
 import About from "./pages/About";
-import Hearder from "./components/Header";
+
 import Admin from "./pages/Admin";
 import Employee from "./pages/Employee";
 import Progresssupervisor from "./pages/Progresssupervisor";
@@ -36,16 +36,13 @@ import ClientReport from './pages/services/ClientReport';
 import ClientSearch from './pages/services/ClientSearch';
 import ShowCart from "./pages/services/showCart";
 
-import About from './pages/About';
+
 import Hearder from './components/Header';
-import Admin from './pages/Admin';
-import Progresssupervisor from './pages/Progresssupervisor';
-import Customer from './pages/Customer';
-import Signin from './pages/Signin';
-import Signup from './pages/Signup';
-import Customersignup from './pages/Customersignup';
-import PrivateRoute from './components/PrivateRoute';
-import Staffsignin from './pages/Staffsignin';
+
+
+
+
+
 import User from './components/User';
 import Admindashboard from './components/Admindashboard';
 
@@ -65,7 +62,7 @@ import Customerreaction from './pages/Customerreaction';
 import AddDailystatus from './pages/AddDailystatus';
 import AllDailyStatus from './pages/AllDailyStatus';
 import Dailyupdate from './pages/Dailyupdate';
-import Report from './pages/Report';
+
 import Customerdaliupdate from './pages/Customerdaliupdate';
 import Updaterequirment from './pages/Updaterequirment';
 import Search from './components/Search';
@@ -81,7 +78,7 @@ import LeaveAttendence from './components/LeaveAttendence';
 import AddSalary from './pages/AddSalary';
 import Salary from './pages/Salary';
 import Salaryreport from './pages/Salaryreport';
-import Employee from './pages/Employee';
+
 
 
 

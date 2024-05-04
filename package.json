@@ -18,15 +18,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-
-<<<<<<< HEAD
+    "express-validator": "^7.0.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.2",
-=======
-    
-
->>>>>>> ad14433e5dc066f58e67ea6ac859e9811bc54e96
-    "express-validator": "^7.0.1",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.13",
     "nodemon": "^3.1.0"

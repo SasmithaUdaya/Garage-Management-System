@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FAQcard from "../../components/Support/FAQ/FAQCard";
 import { Link } from "react-router-dom";
-import { useSnackbar } from "notistack";
 import toast from "react-hot-toast";
 
 const CreateFAQ = () => {
