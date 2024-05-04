@@ -57,6 +57,7 @@ import Acceptedorders from './pages/Acceptedorders';
 import Suplierorder from './pages/Suplierorder';
 import Toacceptorder from './pages/Toacceptorder';
 import AcceptOrderForm from './pages/AcceptOrderForm';
+import Ordersystem from './pages/Ordersystem';
 
 
 
@@ -169,6 +170,7 @@ export default function App() {
        <Route path='/suplierorder' element={<Suplierorder/>}/>
        <Route path='/toacceptorders/:orderid' element={<Toacceptorder/>}/>
        <Route path='/acceptform' element ={<AcceptOrderForm/>}/>
+       <Route path ="/ordersystem" element={<Ordersystem/>}/>
 
        
 
