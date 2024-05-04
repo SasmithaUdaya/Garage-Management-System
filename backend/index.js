@@ -18,6 +18,8 @@ import reactionRoutes from './routes/reaction.route.js'
 import shistoryRoutes from './routes/statushistory.route.js'
 import emailRouter from './routes/email.route.js';
 import apRouter from './routes/ap.route.js';
+import appointmentRouter from './routes/appointment.route.js'
+
 
 import partRouter from './routes/addparts.route.js'
 import paymentRouter from './routes/payment.route.js'
@@ -75,6 +77,9 @@ app.listen(3000, () => {
   app.use('/backend/email', emailRouter);
   app.use('/backend/ap', apRouter);
 
+  app.use('/backend/appointment', appointmentRouter);
+
+
   app.use('/backend/addparts',partRouter);
   app.use('/backend/payment',paymentRouter);
   app.use('/backend/checkout',checkoutRouter);
@@ -85,6 +90,7 @@ app.listen(3000, () => {
   // Ishini's Routes
   app.use('/feedback', feedbackRoute)
   app.use('/faq', faqRoute)
+
 
 
 
