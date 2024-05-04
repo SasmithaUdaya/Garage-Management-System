@@ -9,6 +9,7 @@ export default function Header() {
   const isAdmin = currentUser && currentUser.username === 'admin@gmail.com';//12345
   const isSupervisor = currentUser && currentUser.username === 'supervisor@gmail.com';
   const isStaff = currentUser && currentUser.email === 'staff@gmail.com';
+  const isCCcoordinator = currentUser && currentUser.email === 'cccoordinator@gmail.com';//CEH123-PW
 
   //const isGarageAdmin = currentUser && currentUser.email === 'serviceadmin@gmail.com';
 
