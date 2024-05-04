@@ -19,10 +19,16 @@ import shistoryRoutes from './routes/statushistory.route.js'
 import emailRouter from './routes/email.route.js';
 import apRouter from './routes/ap.route.js';
 
+import partRouter from './routes/addparts.route.js'
+import paymentRouter from './routes/payment.route.js'
+import checkoutRouter from './routes/checkout.route.js'
+
+
 
 
 import attendenceRoutes from './routes/attendance.route.js'
 import markempRoutes from './routes/employee.route.js'
+
 
 
 
@@ -31,6 +37,7 @@ import dotenv from 'dotenv';
 import cors from 'cors'
 dotenv.config();
 
+// const partRouter = require('./routes/addparts.route.js');
 
 mongoose.connect(process.env.MONGO).then(() => {
 
@@ -68,9 +75,17 @@ app.listen(3000, () => {
   app.use('/backend/email', emailRouter);
   app.use('/backend/ap', apRouter);
 
+  app.use('/backend/addparts',partRouter);
+  app.use('/backend/payment',paymentRouter);
+  app.use('/backend/checkout',checkoutRouter);
+  
+  
+
+
   // Ishini's Routes
   app.use('/feedback', feedbackRoute)
   app.use('/faq', faqRoute)
+
 
 
   app.use( (err ,req,res ,next)=>{

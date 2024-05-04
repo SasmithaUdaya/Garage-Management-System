@@ -61,6 +61,18 @@ import Search from './components/Search';
 import History from './pages/History';
 import CustomerReport from './pages/CustomerReport';
 import HaryUP from './pages/HaryUP';
+import AddSpareParts from './pages/finance/AddSpareParts';
+import Payment from './pages/finance/Payment';
+import Checkout from './pages/finance/Checkout';
+import Itembuyer from './pages/finance/Itembuyer';
+import Invoice from './pages/finance/Invoice';
+import BuyerEdit from './pages/finance/BuyerEdit';
+import PaymentEdit from './pages/finance/PaymentEdit';
+import SpareParts from './pages/finance/SpareParts';
+import Cart from './pages/finance/Cart';
+import FinancialAdmin from './pages/finance/FinancialAddmin';
+
+
 
 import EditUSer from './pages/EditUSer';
 import Fristattendence from './components/Fristattendence';
@@ -255,6 +267,22 @@ export default function App() {
 
 
 
+       
+{/* Sanjula */}
+<Route path="/addspareparts" element={<AddSpareParts />} />
+<Route path="/payment" element={<Payment />} />
+<Route path="/checkout" element={<Checkout />} />
+<Route path="/buyer" element={<Itembuyer />} />
+<Route path="/invoice" element={<Invoice />} />
+<Route path="/buyerEdit/:id" element={<BuyerEdit />} />
+<Route path="/paymentEdit/:id" element={<PaymentEdit />} />
+<Route path="/paymentEdit/:id" element={<PaymentEdit />} />
+<Route path="/spareparts" element={<SpareParts />} />
+<Route path="/cart" element={<Cart />} />
+<Route path="/financialadmin" element={<FinancialAdmin />} />
+    
+    
+
 
         <Route path="/arrival" element={<Fristattendence />} />
 
@@ -294,6 +322,7 @@ export default function App() {
       <Toaster position="top-center" />
     </BrowserRouter>
   );
+
 }
 
 //This is first comment
