@@ -270,8 +270,9 @@ export default function App() {
 
 
         {/* Ishinis's Routings */}
-        {/* <Route path="/Home" element={<RealHome />} /> */}
+        <Route element={<PrivateRoute />}>
         <Route path="/feedback/create" element={<CreateFeedback />} />
+        </Route>
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/qanda" element={<QandA />} />
 

@@ -1,19 +1,21 @@
 // import { Link } from "react-router-dom";
 import { BiUserCircle } from "react-icons/bi";
-// import { AiOutlineEdit } from "react-icons/ai";
+import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
-// import { MdOutlineDelete } from "react-icons/md";
+import { MdOutlineDelete } from "react-icons/md";
 import { useState } from "react";
 // import FeedbackModal from "./FeedbackModal";
-// import DeleteFeedbackModal from "./DeleteFeedbackModal";
+ import DeleteFeedbackModal from "./DeleteFeedbackModal";
 import InfoFeedbackModal from "./InfoFeedbackModal";
-// import EditFeedbackModal from "./EditFeedbackModal";
+ import EditFeedbackModal from "./EditFeedbackModal";
+import { useSelector } from "react-redux";
 
 const FeedbackCardFrCreate = ({ feedback }) => {
-  // const [EditFbModal, setEditFbModal] = useState(false);
-  // const [DelFbModal, setDelFbModal] = useState(false);
+  const [EditFbModal, setEditFbModal] = useState(false);
+  const [DelFbModal, setDelFbModal] = useState(false);
   const [InfoFbModal, setInfoFbModal] = useState(false);
-
+  const {currentUser} = useSelector((state) => state.user);
+ 
   // Function to truncate description text to a fixed length
   const truncateDescription = (description, maxLength) => {
     if (description && description.length > maxLength) {
@@ -62,41 +64,45 @@ const FeedbackCardFrCreate = ({ feedback }) => {
           {truncateDescription(feedback.Description, 75)}
         </h2>
       </div>
-      <div className="flex justify-start items-center gap-x-6">
-        <h2 className="my-2 text-gray-500">{renderStars(feedback.Rating)}</h2>
-       
-        <BsInfoCircle
-          className="text-xs text-green-700 hover:text-black"
-          onClick={() => setInfoFbModal(true)}
-        />
+      <div className="flex items-center gap-x-6"> {/* Items aligned in one line */}
+      <h2 className="my-2 text-gray-500">{renderStars(feedback.Rating)}</h2>
 
-        {/* <AiOutlineEdit
-          className="text-xs text-yellow-700 hover:text-black"
-          onClick={() => setEditFbModal(true)}
-        />
-        <MdOutlineDelete
-          className="text-xs text-red-700 hover:text-black"
-          onClick={() => setDelFbModal(true)}
-        /> */}
-      </div>
-      {/* {DelFbModal && (
+      <BsInfoCircle
+        className="text-green-700 hover:text-black"
+        onClick={() => setInfoFbModal(true)}
+      />
+
+      {currentUser._id === feedback.userRef && ( // Only show if user is the author
+        <div className="flex items-center gap-x-6"> {/* Align edit and delete icons in one line */}
+          <AiOutlineEdit
+            className="text-yellow-700 hover:text-black"
+            onClick={() => setEditFbModal(true)}
+          />
+          <MdOutlineDelete
+            className="text-red-700 hover:text-black"
+            onClick={() => setDelFbModal(true)}
+          />
+        </div>
+      )}
+    </div>
+      {DelFbModal && (
         <DeleteFeedbackModal
           feedback={feedback}
           onClose={() => setDelFbModal(false)}
         />
-      )} */}
+      )}
       {InfoFbModal && (
         <InfoFeedbackModal
           feedback={feedback}
           onClose={() => setInfoFbModal(false)}
         />
       )}
-      {/* {EditFbModal && (
+      {EditFbModal && (
         <EditFeedbackModal
           feedback={feedback}
           onClose={() => setEditFbModal(false)}
         />
-      )} */}
+      )}
     </div>
   );
 };
