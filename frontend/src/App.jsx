@@ -67,7 +67,7 @@ import AppointmentHistory from './pages/appointment/AppointmentHistory';
 import UpdateAppointment from './pages/appointment/UpdateAppointment';
 import GarageManager from './pages/appointment/GarageManager';
 import UserProfile from './pages/appointment/UserProfile';
-=======
+
 import AddSpareParts from './pages/finance/AddSpareParts';
 import Payment from './pages/finance/Payment';
 import Checkout from './pages/finance/Checkout';
@@ -92,6 +92,15 @@ import Salaryreport from './pages/Salaryreport';
 import Employee from './pages/Employee';
 // import AdminHome from './pages/services/AdminHome';
 import VReport from "./pages/VReport";
+import Mechanic from './pages/Mechanic';
+import Assign from './pages/Assign';
+
+import ChangeAssignment from './pages/ChangeAssignment';
+import CreateAccident from './pages/CreateAccident';
+import ViewAccident from './pages/ViewAccident';
+import AccidentReport from './pages/AccidentReport';
+import Request from './pages/Request';
+import FindMechanic from './pages/FindMechanic';
 
 
 
@@ -316,7 +325,22 @@ export default function App() {
 
         <Route path="/salaryreport" element={<Salaryreport />} />
 
+{/* dilthra */}
 
+<Route path="/mechanic" element={<Mechanic />} />
+    
+           <Route path="/assign" element={<Assign />} />
+       
+           <Route path="/viewacc/change/:id" element={<ChangeAssignment />} />
+  
+           <Route path="/createacc" element={<CreateAccident />} />
+ 
+           <Route path="/viewacc" element={<ViewAccident />} />
+ 
+           <Route path="/find" element={<FindMechanic />} />
+           <Route path="/accreport" element={<AccidentReport />} />
+
+           <Route path="/request" element={<Request />} />
 
        
 

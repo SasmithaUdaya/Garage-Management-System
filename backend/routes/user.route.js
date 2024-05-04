@@ -1,4 +1,3 @@
-
 import express from "express";
 // import {
 //   deleteCustomer,
@@ -30,4 +29,3 @@ router.get("/listings/:id", verifyToken, getUserListings);
 
 
     export default router;
-

@@ -6,6 +6,7 @@ import authRoutes from './routes/auth.route.js';
 import customerRoutes from './routes/customer.route.js';
 
 
+
 import feedbackRoute from './routes/SupportRoutes/FeedBackRoute.js'
 import faqRoute from './routes/SupportRoutes/FAQRoute.js'
 
@@ -34,12 +35,18 @@ import markempRoutes from './routes/employee.route.js'
 
 
 
-import cookieParser from 'cookie-parser';
-import dotenv from 'dotenv';
 import cors from 'cors'
-dotenv.config();
 
 // const partRouter = require('./routes/addparts.route.js');
+
+
+import accidentRoutees from './routes/accident.route.js' ;
+import accidentrequestRoutes from './routes/accidentrequest.route.js';
+import attendancetrackRoutees from './routes/attendancetrack.route.js';
+import cookieParser from 'cookie-parser';
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 mongoose.connect(process.env.MONGO).then(() => {
 
@@ -49,12 +56,18 @@ mongoose.connect(process.env.MONGO).then(() => {
 });
 
 
+
+
   
 
 const app = express();
 
 app.use(express.json());
+
 app.use(cors());
+
+
+
 app.use(cookieParser()) ;
 
 app.listen(3000, () => {
@@ -65,6 +78,7 @@ app.listen(3000, () => {
   app.use('/backend/user', userRoutes);
   app.use('/backend/auth', authRoutes);
   app.use('/backend/customer', customerRoutes);
+
   app.use('/backend/issues', issueRoutes);
   app.use('/backend/attendence', attendenceRoutes);
   app.use('/backend/employee', markempRoutes);
@@ -91,6 +105,12 @@ app.listen(3000, () => {
   app.use('/feedback', feedbackRoute)
   app.use('/faq', faqRoute)
 
+
+
+  app.use('/backend/accident', accidentRoutees);
+
+  app.use('/backend/accidentrequest',accidentrequestRoutes);
+  app.use('/backend/attendancetrack',attendancetrackRoutees);
 
 
 

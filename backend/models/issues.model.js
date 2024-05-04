@@ -6,6 +6,10 @@ const repairSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
+
+
+        unique: true,
+
     },
 
     vehiclenumber: {
@@ -14,10 +18,12 @@ const repairSchema = new mongoose.Schema({
         unique: true,
     },
 
+
     vehicle: {
         type: String,
         default : "https://media.istockphoto.com/id/1157763394/vector/motor-vehicles-automobile-bus-truck-flat-vector-pictogram-icon-set.jpg?s=612x612&w=0&k=20&c=qV_inSmXdftbufcMH3LUL0u1doNBKjqIJEBrApyu5MQ=",
     },
+
     engine: {
         type: String,
         default: "good"
@@ -42,7 +48,10 @@ const repairSchema = new mongoose.Schema({
         
     },
     requirment: {
+
         type: Array,
+
+
         default: "No requirment"
         
     },
