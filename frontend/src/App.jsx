@@ -1,3 +1,32 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import { Toaster } from "react-hot-toast";
+
+
+import About from "./pages/About";
+import Hearder from "./components/Header";
+import Admin from "./pages/Admin";
+import Employee from "./pages/Employee";
+import Progresssupervisor from "./pages/Progresssupervisor";
+import Customer from "./pages/Customer";
+import Signin from "./pages/Signin";
+import Signup from "./pages/Signup";
+import Customersignup from "./pages/Customersignup";
+import PrivateRoute from "./components/PrivateRoute";
+import Staffsignin from "./pages/Staffsignin";
+// import User from "./components/User";
+
+
+// Ishini's Imports
+import AdminFeedBacks from "./pages/SupportPages/Home";
+import CreateFeedback from "./pages/SupportPages/CreateFeedback";
+import EditFeedback from "./pages/SupportPages/EditFeedback";
+import DeleteFeedback from "./pages/SupportPages/DeleteFeedback";
+import ShowFeedback from "./pages/SupportPages/ShowFeedback";
+import CreateFAQ from "./pages/SupportPages/CreateFAQ";
+// import RealHome from "./pages/SupportPages/RealHome";
+import FAQs from "./pages/SupportPages/FAQs";
+import Report from "./pages/SupportPages/Report";
 
 import CreateListin from './pages/services/CreateListing';
 import Listing from './pages/services/Listing';
@@ -6,12 +35,10 @@ import ShowService from "./pages/services/showService";
 import ClientReport from './pages/services/ClientReport';
 import ClientSearch from './pages/services/ClientSearch';
 import ShowCart from "./pages/services/showCart";
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
-import Home from './pages/Home';
+
 import About from './pages/About';
 import Hearder from './components/Header';
 import Admin from './pages/Admin';
-import Employee from './pages/Employee';
 import Progresssupervisor from './pages/Progresssupervisor';
 import Customer from './pages/Customer';
 import Signin from './pages/Signin';
@@ -21,7 +48,9 @@ import PrivateRoute from './components/PrivateRoute';
 import Staffsignin from './pages/Staffsignin';
 import User from './components/User';
 import Admindashboard from './components/Admindashboard';
+
 import AdminDashboardGarageManager from '../src/pages/services/AdminDashboardGarageManager'
+
 import Repairdashboard from './components/Repairdashboard';
 import Repaiissue from './pages/Repaiissue';
 import View from './pages/View';
@@ -44,6 +73,20 @@ import History from './pages/History';
 import CustomerReport from './pages/CustomerReport';
 import HaryUP from './pages/HaryUP';
 
+import EditUSer from './pages/EditUSer';
+import Fristattendence from './components/Fristattendence';
+import MarkAttedence from './components/MarkAttedence';
+import EviningMark from './components/EviningMark';
+import LeaveAttendence from './components/LeaveAttendence';
+import AddSalary from './pages/AddSalary';
+import Salary from './pages/Salary';
+import Salaryreport from './pages/Salaryreport';
+import Employee from './pages/Employee';
+
+
+
+
+
 
 export default function App() {
   return (
@@ -51,8 +94,79 @@ export default function App() {
       <Hearder />
       <Routes>
         <Route path="/" element={<Home />} />
+
+        <Route path="/signin" element={<Signin />} />
+
+        {/* <Route element={<PrivateRoute />}>
+          <Route path="/signup" element={<Signup />} />
+
+
         <Route path="/signin" element={<Signin />} />
         <Route path="/about" element={<About />} />
+
+        <Route path="/signin" element={<Signin/>} />
+        
+        <Route  element={<PrivateRoute />} >
+         <Route path="/signup" element={<Signup/>} />
+
+        </Route>
+        
+
+        <Route element={<PrivateRoute />}>
+          <Route path="/admin" element={<Admin />} />
+        </Route> */}
+
+        <Route path="/about" element={<About />} />
+
+        {/* <Route element={<PrivateRoute />}>
+          <Route path="/progresssupervisor" element={<Progresssupervisor />} />
+        </Route>
+
+
+        <Route element={<PrivateRoute />}>
+          <Route path="/employee" element={<Employee />} />
+        </Route>
+
+        <Route element={<PrivateRoute />}>
+          <Route path="/customer" element={<Customer />} />
+        </Route> */}
+
+        <Route path="/customersignup" element={<Customersignup />} />
+
+        {/* <Route element={<PrivateRoute />}>
+          <Route path="/staffsignin" element={<Staffsignin />} />
+        </Route>
+
+        <Route element={<PrivateRoute />}>
+          <Route path="/user" element={<User />} />
+        </Route> */}
+
+        <Route element={<PrivateRoute />}>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/progresssupervisor" element={<Progresssupervisor />} />
+        <Route path="/employee" element={<Employee />} />
+        <Route path="/customer" element={<Customer />} />
+        <Route path="/staffsignin" element={<Staffsignin />} />
+        <Route path="/adminFeeds" element={<AdminFeedBacks />} />
+        </Route>
+
+        
+        <Route  element={<PrivateRoute />} >
+         <Route path="/employee" element={<Employee />} />
+        </Route>
+
+        <Route  element={<PrivateRoute />} >
+         <Route path="/edituser/:id" element={<EditUSer />} />
+        </Route>
+
+       
+        
+         <Route  element={<PrivateRoute />} >
+           <Route path="/customer" element={<Customer />} />
+        </Route>
+        
+
         <Route path="/customersignup" element={<Customersignup />} />
         <Route path="/listing/:listingId" element={<Listing />} />
         <Route path="/show-service" element={<ShowService />} />
@@ -63,7 +177,11 @@ export default function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/update-listing/:listingId" element={<UpdateListing />} />
           <Route path="/progresssupervisor" element={<Progresssupervisor />} />
+
           <Route path="/adminGarage" element={<AdminDashboardGarageManager />} />
+
+          <Route path="/adminGarage" element={<Admindashboard />} />
+
           <Route path="/employee" element={<Employee />} />
           <Route path="/customer" element={<Customer />} />
           <Route path="/staffsignin" element={<Staffsignin />} />
@@ -82,6 +200,7 @@ export default function App() {
         <Route  element={<PrivateRoute />} >
           <Route path="/admindashboard" element={<Admindashboard />} />
         </Route>
+
 
         <Route  element={<PrivateRoute />} >
         <Route path="/repairdashboard" element={<Repairdashboard />} />
@@ -143,13 +262,44 @@ export default function App() {
 
 
 
+        <Route path="/arrival" element={<Fristattendence />} />
+
+        <Route path="/arrival/mark/:id" element={<MarkAttedence />} />
+
+        <Route path="/leave" element={<EviningMark />} />
+
+        <Route path="/leave/emark/:id" element={<LeaveAttendence />} />
+
+        <Route path="/addsalary" element={<AddSalary />} />
+
+        {/* <Route path="/addsalary" element={<AddSalary />} /> */}
+
+        <Route path="/addsalary/salary/:id" element={<Salary/>} />
+
+        <Route path="/salaryreport" element={<Salaryreport />} />
+
 
 
        
 
-     </Routes>
-     </BrowserRouter>
-  )
+
+        {/* Ishinis's Routings */}
+        {/* <Route path="/Home" element={<RealHome />} /> */}
+        <Route path="/feedback/create" element={<CreateFeedback />} />
+        <Route path="/faqs" element={<FAQs />} />
+
+
+        <Route path="/faq/create" element={<CreateFAQ />} />
+       
+        <Route path="/report" element={<Report />} />
+        <Route path="/feedback/details/:id" element={<ShowFeedback />} />
+        <Route path="/feedback/edit/:id" element={<EditFeedback />} />
+        <Route path="/feedback/delete/:id" element={<DeleteFeedback />} />
+      </Routes>
+
+      <Toaster position="top-center" />
+    </BrowserRouter>
+  );
 }
 
 //This is first comment
