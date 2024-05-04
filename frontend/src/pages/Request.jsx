@@ -19,6 +19,7 @@ export default function Request() {
     fetchData();
   }, []);
 
+  // Function to handle checkbox selection
   const handleRowSelect = (id) => {
     if (selectedRows.includes(id)) {
       setSelectedRows(selectedRows.filter(rowId => rowId !== id));
@@ -27,54 +28,55 @@ export default function Request() {
     }
   };
 
+  // Function to handle saving checkbox state to backend
+  const saveSelectedRows = async () => {
+    try {
+      // Make a POST request to save selected rows to backend
+      await axios.post('/backend/saveSelectedRows', { selectedRows });
+      console.log('Selected rows saved successfully!');
+    } catch (error) {
+      console.error('Error saving selected rows:', error.message);
+    }
+  };
+
   return (
-    <div className="bg-gradient-to-br from-yellow-200 to-blue-400 min-h-screen">
-      <div className="container mx-auto px-4">
-        <div className='w-3/4 py-10'>
-          <table className='w-full border-collapse border bg-yellow-200'>
-            <thead>
-              <tr className='bg-gray-100'>
-                <th className='border border-gray-300 px-4 py-2 text-black'>CusId</th>
-                <th className='border border-gray-300 px-4 py-2 text-black'>CusName</th>
-                <th className='border border-gray-300 px-4 py-2 text-black'>Date</th>
-                <th className='border border-gray-300 px-4 py-2 text-black'>Mobile</th>
-                <th className='border border-gray-300 px-4 py-2 text-black'>Location</th>
-                <th className='border border-gray-300 px-4 py-2 text-black'>VehicleNo</th>
-                <th className='border border-gray-300 px-4 py-2 text-black'>Select</th>
+    <div className="bg-gradient-to-br from-yellow-200 to-blue-400 min-h-screen flex justify-center items-center">
+      <div className="w-3/4 py-10">
+        <table className='w-full border-collapse border bg-yellow-200 rounded-lg'>
+          <thead>
+            <tr className='bg-gray-100'>
+              <th className='border border-gray-300 px-4 py-2 text-black'>CusId</th>
+              <th className='border border-gray-300 px-4 py-2 text-black'>CusName</th>
+              <th className='border border-gray-300 px-4 py-2 text-black'>Date</th>
+              <th className='border border-gray-300 px-4 py-2 text-black'>Mobile</th>
+              <th className='border border-gray-300 px-4 py-2 text-black'>Location</th>
+              <th className='border border-gray-300 px-4 py-2 text-black'>VehicleNo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {formData.map((request) => (
+              <tr key={request._id}>
+                <td className='border border-gray-300 px-4 py-2 text-black'>{request.cusId}</td>
+                <td className='border border-gray-300 px-4 py-2 text-black'>{request.cusName}</td>
+                <td className='border border-gray-300 px-4 py-2 text-black'>
+                  {new Date(request.date).toLocaleDateString()}
+                </td>
+                <td className='border border-gray-300 px-4 py-2 text-black'>{request.mobile}</td>
+                <td className='border border-gray-300 px-4 py-2 text-black'>{request.location}</td>
+                <td className='border border-gray-300 px-4 py-2 text-black'>{request.vehicleNo}</td>
               </tr>
-            </thead>
-            <tbody>
-              {formData.map((request) => (
-                <tr key={request._id}>
-                  <td className='border border-gray-300 px-4 py-2 text-black'>{request.cusId}</td>
-                  <td className='border border-gray-300 px-4 py-2 text-black'>{request.cusName}</td>
-                  <td className='border border-gray-300 px-4 py-2 text-black'>
-                    {new Date(request.date).toLocaleDateString()}
-                  </td>
-                  <td className='border border-gray-300 px-4 py-2 text-black'>{request.mobile}</td>
-                  <td className='border border-gray-300 px-4 py-2 text-black'>{request.location}</td>
-                  <td className='border border-gray-300 px-4 py-2 text-black'>{request.vehicleNo}</td>
-                  <td className='border border-gray-300 px-4 py-2 text-black'>
-                    <input
-                      type="checkbox"
-                      checked={selectedRows.includes(request._id)}
-                      onChange={() => handleRowSelect(request._id)}
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <div className="flex justify-center mt-4">
-            <Link to='/find'>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Search Mechanic
-              </button>
-            </Link>
-          </div>
+            ))}
+          </tbody>
+        </table>
+        <div className="flex justify-center mt-4">
+         
+          <Link to='/find'>
+            <button className="bg-gradient-to-r from-yellow-200 to-blue-400 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-blue-600 text-white font-bold py-2 px-4 rounded ml-4">
+              Search Mechanic
+            </button>
+          </Link>
         </div>
       </div>
     </div>
   );
 }
-
