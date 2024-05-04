@@ -10,25 +10,28 @@ const listingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-
     price: {
       type: Number,
       required: true,
     },
-
     type: {
       type: String,
       required: true,
     },
-
     imageUrls: {
       type: Array,
       required: true,
     },
-      userRef: {
-        type: String,
-         required: true,
-       },
+    userRef: {
+      type: String,
+      required: true,
+    },
+    includedServices: {
+      type: [String], // Assuming you'll store service names here
+      default: [],
+    },
+
+
   },
   { timestamps: true }
 );

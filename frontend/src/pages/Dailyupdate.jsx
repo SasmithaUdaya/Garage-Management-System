@@ -61,7 +61,7 @@ export default function Dailyupdate() {
         text,
       });
       alert('Email sent successfully');
-      navigate('/report');
+      navigate('/vreport');
     } catch (err) {
       console.error(err);
       alert('Error sending email');

@@ -33,7 +33,7 @@ export default function Repairdashboard() {
               <FaEdit className="mr-2" />Daily Status
             </li>
           </Link>
-          <Link to="/report">
+          <Link to="/vreport">
             <li className="py-2 border p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md cursor-pointer flex">
               <FaEdit className="mr-2" />Report
             </li>
