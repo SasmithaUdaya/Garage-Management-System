@@ -1,14 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import emailjs from 'emailjs-com';
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'; // Importing the icons
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'; // Social media icons
 
 export const QandA = () => {
+  // Get current user data from Redux store
+  const currentUser = useSelector((state) => state.user.currentUser);
+
+  // Initialize form data with current user's information
   const [formData, setFormData] = useState({
-    email: '',
-    name: '',
-    phone: '',
+    email: currentUser ? currentUser.email : '',
+    name: currentUser ? currentUser.name : '',
+    phone: currentUser ? currentUser.phone : '',
     question: '',
   });
+
+  // Update form data when currentUser changes
+  useEffect(() => {
+    if (currentUser) {
+      setFormData({
+        email: currentUser.email,
+        name: currentUser.name,
+        phone: currentUser.phone,
+        question: formData.question, // Keep existing question
+      });
+    }
+  }, [currentUser]); // Run when currentUser changes
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,20 +40,20 @@ export const QandA = () => {
 
     emailjs
       .send(
-        'service_iv7fuqp', 
-        'template_zid8h2x', 
+        'service_iv7fuqp', // EmailJS service ID
+        'template_zid8h2x', // EmailJS template ID
         {
           email: formData.email,
           name: formData.name,
           phone: formData.phone,
           question: formData.question,
         },
-        'PlL9al8BtlP6AwR_q' 
+        'PlL9al8BtlP6AwR_q' // EmailJS user ID
       )
       .then(
         (result) => {
           console.log('Question sent:', result.text);
-          setFormData({ email: '', name: '', phone: '', question: '' });
+          setFormData({ email: '', name: '', phone: '', question: '' }); // Clear form data after success
         },
         (error) => {
           console.error('Failed to send question:', error.text);
@@ -54,10 +71,12 @@ export const QandA = () => {
       </h1>
       <div className="bg-gradient-to-l from-white to-gray-300 p-6 rounded-lg shadow-lg w-2/3">
         <form onSubmit={handleSubmit} className="flex flex-col">
-          <div className="flex flex-col sm:flex-row">
-            <div className="flex flex-col sm:w-1/2 sm:mr-4">
+          <div className="flex flex-col sm:flex-row"> {/* Two-column layout for form */}
+            <div className="flex flex-col sm:w-1/2 sm:mr-4"> {/* Left column */}
               <div className="mb-4">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email:</label>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  Email:
+                </label>
                 <input
                   type="email"
                   name="email"
@@ -69,7 +88,9 @@ export const QandA = () => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name:</label>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                  Name:
+                </label>
                 <input
                   type="text"
                   name="name"
@@ -81,7 +102,9 @@ export const QandA = () => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone:</label>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                  Phone:
+                </label>
                 <input
                   type="text"
                   name="phone"
@@ -92,9 +115,11 @@ export const QandA = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-col sm:w-1/2">
+            <div className="flex flex-col sm:w-1/2"> {/* Right column */}
               <div className="mb-6">
-                <label htmlFor="question" className="block text-sm font-medium text-gray-700">Message:</label>
+                <label htmlFor="question" className="block text-sm font-medium text-gray-700">
+                  Message:
+                </label>
                 <textarea
                   name="question"
                   id="question"
@@ -114,7 +139,8 @@ export const QandA = () => {
           </div>
         </form>
       </div>
-      {/* Add social media links */}
+
+      {/* Social Media Links */}
       <div className="flex justify-center mt-6 gap-6">
         <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-blue-700">
           <FaFacebook size={30} />
@@ -126,12 +152,12 @@ export const QandA = () => {
           <FaTwitter size={30} />
         </a>
       </div>
+
       <div className="text-center mt-4 text-gray-700">
         <p>Follow us on social media for the latest updates and exclusive content.</p>
         <p>Join our community and stay connected with us.</p>
         <p>Discover our work, customer testimonials, and upcoming events.</p>
       </div>
     </div>
-    
   );
 };
