@@ -67,7 +67,7 @@ import AppointmentHistory from './pages/appointment/AppointmentHistory';
 import UpdateAppointment from './pages/appointment/UpdateAppointment';
 import GarageManager from './pages/appointment/GarageManager';
 import UserProfile from './pages/appointment/UserProfile';
-=======
+
 import AddSpareParts from './pages/finance/AddSpareParts';
 import Payment from './pages/finance/Payment';
 import Checkout from './pages/finance/Checkout';
