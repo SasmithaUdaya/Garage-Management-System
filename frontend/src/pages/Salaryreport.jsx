@@ -59,7 +59,7 @@ export default function Salaryreport() {
       };
 
     useEffect(() => {
-        // Calculate total salary when formData changes
+       
         const calculateTotalSalary = () => {
             let total = 0;
             formData.forEach(user => {

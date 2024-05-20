@@ -37,18 +37,18 @@ export default function Staffsignin()  {
   
         }
         dispatch(signInSuccess(data));
-        // const username = formData.username;
-        // if(username == 'admin@gmail.com'){//password = 12345
-        //   navigate('/admin');
-        // }else if(username == 'supervisor@gmail.com'){//password = 12345
-        //     navigate('/progresssupervisor');
+         const username = formData.username;
+         if(username == 'admin@gmail.com'){//password = 12345
+          navigate('/admin');
+         }else if(username == 'supervisor@gmail.com'){//password = 12345
+            navigate('/progresssupervisor');
 
-        // }else{
+        }
 
         //           
 
         // }
-        navigate('/');
+         
       }catch(error){
         dispatch(signInFailure(error.message));
   
